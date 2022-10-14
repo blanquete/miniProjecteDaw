@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="estilPaginaPrincipal.css" media="screen">
     <link rel="stylesheet" type="text/css" href="estilInput.css" media="screen">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Teacher Help!</title>
+    <title>Teacher Help</title>
 
 </head>
 <body class="body">
@@ -19,10 +19,7 @@
         <div class="containerIziquierda">
             <h1 id="time">00:00:00</h1>
         </div>
-        <!--Div medio -->
-        <div class="titolPrincipal"> 
-            <h1>Interacció d'ajuda</h1>
-        </div>
+       
         <!--Div derecha.-->
         <div class="containerDerecha">
             <p>Aqui tindrem el nostre gmail</p>
@@ -33,12 +30,24 @@
    <div class="containerAmbTotaInformacio">
     <br>
     <div class="containerInformació">
-        <h1>Centre de preguntes</h1>
-        <p>Has d'omplir tots els contigunts.</p>
+        <h1 class="txtTitolH1">Centre de preguntes</h1>
     </div>
 
     <form>
    
+    <div class="containerQuestion">
+        <label>Selecciona el teu problema:</label>
+        <br>
+        <br>
+        <select class="seleccio">
+            <option value="" hidden selected>Selecciona una opción</option>
+            <option value="problemaBBDD">Problemes base de dades</option>
+            <option value="errorCompilacio">Error de compilació</option>
+            <option value="errorUI">Error amb la interficie</option>
+            <option value="altres">Altres</option>
+        </select>
+    </div>
+
     <div class="containerQuestion">
         <label>Introdueix el teu error:</label>
         <br>

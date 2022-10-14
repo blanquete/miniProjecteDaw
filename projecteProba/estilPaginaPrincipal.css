@@ -1,7 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
-    font-family: monospace;
+    font-family: "helvetica neue" , "arial" , "helvetica" , "sans-serif";
 }
 .body{
     height: 100vh;
@@ -9,7 +9,7 @@
 }
 .containerHeader{
     background-color: rgb(243, 242, 242); 
-    columns: 3; 
+    columns: 2; 
 }
 .titolPrincipal{
     text-align: center;
@@ -31,21 +31,17 @@
    width: 60%;
    margin: auto;
    margin-top: 50px;
-   height: 1000px;
+   height: 800px;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
-   
 }
 
 .containerInformació{
     text-align: center;
     margin: auto;
     height: 65px;
-    width: 350px;
-    background-color: #FFFFFF ;
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
+ 
     padding-top: 10px;
-    
 }
 
 .containerQuestion{
@@ -57,7 +53,9 @@
     padding-top: 10px;
 }
 
-
+.txtTitolH1{
+    font-size:40px;
+}
 
 p{
     font-size: 16px;
