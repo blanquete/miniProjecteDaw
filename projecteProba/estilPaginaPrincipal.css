@@ -38,7 +38,9 @@
 
 .containerInformació{
     margin: 20px;
+    height: 100px;
     background-color: rgb(242, 242, 242) ;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
     padding-top: 10px;
 }
 
