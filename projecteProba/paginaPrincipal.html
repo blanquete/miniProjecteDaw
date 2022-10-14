@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link rel="icon" href="https://cdn.icon-icons.com/icons2/738/PNG/512/doughnut_icon-icons.com_63187.png">
     <link rel="stylesheet" type="text/css" href="estilPaginaPrincipal.css" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Teacher Help!</title>
 
 </head>
@@ -19,50 +19,29 @@
             <h1 id="time">00:00:00</h1>
         </div>
         <!--Div medio -->
-        <div>
-            <header>
-                <h1 class="titolPrincipal">Interacció d'ajuda</h1>
-            </header>
+        <div class="titolPrincipal"> 
+            <h1>Interacció d'ajuda</h1>
         </div>
-        <p>hola</p>
         <!--Div derecha.-->
-        <div>
+        <div class="containerDerecha">
+            <p>Aqui tindrem el nostre gmail</p>
         </div>
     </div>
 
     <script src="click.js"></script>
 
-    <div class="container_Question">
-        <form>
-            <div>
-                <label>Qüestió</label>
-                <br>
-                <textarea type="textArea" name="questio" style="width: 228px; HEIGHT: 98px" size=50 ></textarea>
-            </div>
+   <div class="containerAmbTotaInformacio">
 
-            <div class="containerSelect">
-                <label>Tipus d'error</label>
-                <br>
-                <select name="options" id="idOption" class="selectOptions">
-                    <option value ="">Tria una opció</option>
-                    <option value="errorBBDD">Error BBDD</option>
-                    <option value="errorCompilation">Error Compilació</option>
-                    <option value="errorIde">Error IDE</option>
-                    <option value="altres">Altres</option>
-                </select>
-            </div>
-
-            
-        </form>
+    <div class="containerInformació">
+        <h1>Centre de preguntes</h1>
+        <p>Has d'omplir tots els contigunts.</p>
     </div>
 
-    <div class="containerDescription">
-        <form>
-            <label>Descripció</label>
-            <br>
-            <textarea type="textArea" name="questio" style="width: 500px; HEIGHT: 98px" size=50 ></textarea>
-        </form>  
+    <div class="containerQuestion">
+        <label>Introdueix el teu error:</label>
     </div>
-            
+
+   </div>
+    
 </body>
 </html>

@@ -1,6 +1,6 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0%;
+    padding: 0%;
     font-family: monospace;
 }
 .body{
@@ -8,39 +8,52 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 71%, rgba(159, 159, 159, 1) 100%);
 }
 .containerHeader{
-    height: 4%;
-    width: 100%;
-
     background-color: rgb(243, 242, 242); 
     columns: 3; 
 }
 .titolPrincipal{
-    color: black;
     text-align: center;
+    margin-top: 10px;
 }
 .containerIziquierda{
     padding-left: 2%;
 }
 
-.container_Question{
-    position: absolute;
-    top: 15%;
-    left: 30%;
-    columns:2;
-}
-.containerSelect{
-    margin-left: 50px;
-}
-.containerDescription{
-    position: absolute;
-    top: 30%;
-    left: 30%;
+.containerDerecha{
+    margin-top: 5px;
+    padding-right: 4%;
+    float: right;
+    font-size: 20px;
+    vertical-align: center;
 }
 
-label{
-    font-size: 25px;
-}
-textarea {
-    resize: none;
+.containerAmbTotaInformacio{
+   width: 60%;
+   margin: auto;
+   margin-top: 50px;
+   
 }
 
+.containerInformació{
+    margin: 20px;
+    background-color: rgb(242, 242, 242) ;
+    box-shadow:  10px -16px teal;
+}
+
+.containerQuestion{
+    margin: 20px;
+    background-color: rgb(242, 242, 242) ;
+    box-shadow: inset 5em 1em gold;
+}
+
+
+
+p{
+    font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+    *{
+        width: 100%;
+    }
+}
