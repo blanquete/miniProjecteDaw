@@ -31,19 +31,21 @@
    width: 60%;
    margin: auto;
    margin-top: 50px;
+   height: 1000px;
+   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
    
 }
 
 .containerInformació{
     margin: 20px;
     background-color: rgb(242, 242, 242) ;
-    box-shadow:  10px -16px teal;
+    padding-top: 10px;
 }
 
 .containerQuestion{
     margin: 20px;
     background-color: rgb(242, 242, 242) ;
-    box-shadow: inset 5em 1em gold;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.39), 0 1px 20px 0 rgba(0, 0, 0, 0.233);
 }
 
 
