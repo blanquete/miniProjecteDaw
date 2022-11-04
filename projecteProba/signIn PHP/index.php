@@ -81,8 +81,10 @@ if(!isset($_SESSION['access_token']))
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Teacher Help</title>
   
- </head>
- <body>
+</head>
+<body class="body">
+
+    <script src="click.js"></script>
 
 <div class="containerHeader">
     <!-- Div izquierda-->
@@ -91,41 +93,21 @@ if(!isset($_SESSION['access_token']))
     </div>
    
    <?php
-   if($login_button == '')
+   if($login_button == '')//si estem loginats mostrem el contingut del formulari
    {
 
-    echo '<div class="containerDerecha"><p>'.$_SESSION['user_email_address'].'</p></div><h3><a href="logout.php">Logout</h3></div></div>';
-
-  //print_r($_SESSION);
-
-    // echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-    // echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-    // echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-    // echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-    // echo '<h3><a href="logout.php">Logout</h3></div>';
-
-
+    echo '<div class="containerDerecha"><p>'.$_SESSION['user_email_address'].'</p></div><h3><a href="logout.php">Logout</a></h3></div>';
+    echo '<div class="containerAmbTotaInformacio">';
     
    }
-   else
+   else//Si no el deixem ocult (Podriem mostrar una pantalla d'inici)
    {
     echo '<div class="containerDerecha"><p>' . $login_button . '</p></div></div>';
+    echo '<div class="containerAmbTotaInformacio" style="display:none">';
 
 
    }
    ?>
- </body>
-</html>
-
-
-<!--  -->
-
-<!DOCTYPE html>
-<html lang="en">
-<body class="body">
-
-    <script src="click.js"></script>
-    <div class="containerAmbTotaInformacio">
     <br>
     <div class="containerInformació">
         <h1 class="txtTitolH1">Centre de preguntes</h1>
@@ -157,3 +139,4 @@ if(!isset($_SESSION['access_token']))
     
 </body>
 </html>
+
