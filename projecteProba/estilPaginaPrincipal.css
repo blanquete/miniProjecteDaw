@@ -26,10 +26,10 @@
 
 
 .containerAmbTotaInformacio{
-   width: 60%;
+   width: 50%;
    margin-right: auto;
    margin-top: 50px;
-   margin-left: 5%;
+   margin-left: 2%;
    height: 800px;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
@@ -76,7 +76,7 @@ p{
     font-size: 16px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px){
     *{
         width: 100%;
     }
