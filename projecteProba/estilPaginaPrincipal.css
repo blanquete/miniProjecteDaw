@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin: 0%;
     padding: 0%;
     font-family: 'Poppins' , sans-serif;
 }
@@ -18,37 +18,38 @@
 
 .containerDerecha{
     margin-top: 5px;
-    padding-right: 4%;
     float: right;
     font-size: 20px;
     vertical-align: center;
 }
-
+.clock{
+    font-size: 30px;
+}
 
 .containerAmbTotaInformacio{
-   width: 80%;
-   margin-right: auto;
-   margin-top: 50px;
+    position: relative;
+   height: 80vh;
+   width: 50%;
+   margin-top: 2vw;
    margin-left: 2%;
-   height: 800px;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
 
-.containerInformació{
+.txtTitolH1{
     text-align: center;
-    margin: auto;
-    height: 65px;
-    padding-top: 10px;
 }
 
 .containerQuestion{
-    margin: 20px;
+    overflow: auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
     background-color: #FFFFFF ;
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.39), 0 1px 20px 0 rgba(0, 0, 0, 0.233);
     height: 150px;
-    padding-left: 10px;
-    padding-top: 10px;
+    
 }
 
 .txtTitolH1{
@@ -56,9 +57,9 @@
 }
 
 .containerFooter{
-    text-align: center;
-    margin: auto;
-    padding-top: 20px;
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
 }
 
 .containerButton{
@@ -74,10 +75,4 @@
 
 p{
     font-size: 16px;
-}
-
-@media screen and (max-width: 950px){
-    *{
-        width: 100%;
-    }
 }

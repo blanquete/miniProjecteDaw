@@ -3,13 +3,12 @@
     display:block;
     border:none;
     border-bottom:1px solid #ccc;
-    width: 350px;
+    width: 50%;
   
 }
-
 .seleccio{
     padding:9px 0;
-    width: 190px;
+    width: 50%;
     border:none;
     border-bottom:1px solid #ccc
 }
