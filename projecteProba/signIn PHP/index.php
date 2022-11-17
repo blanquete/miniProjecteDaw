@@ -78,20 +78,18 @@ if(!isset($_SESSION['access_token']))
     <link rel="stylesheet" type="text/css" href="../estilPaginaPrincipal.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../estilInput.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../animacioBoton.css" media="screen">
+
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Teacher Help</title>
   
 </head>
 <body class="body">
-
-    <script src="click.js"></script>
-
 <div class="containerHeader">
     <!-- Div izquierda-->
     <div class="containerIziquierda">
         <h1 id="time">00:00:00</h1>
     </div>
-   
+    
    <?php
    if($login_button == '')//si estem loginats mostrem el contingut del formulari
    {
@@ -136,6 +134,8 @@ if(!isset($_SESSION['access_token']))
     </div>
     </form> 
    </div>
+
+<script src="click.js"></script>
     
 </body>
 </html>
