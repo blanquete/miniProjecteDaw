@@ -7,6 +7,9 @@
     height: 100vh;
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 71%, rgba(159, 159, 159, 1) 100%);
 }
+
+/*Pàgina principal - Part Header*/
+
 .containerHeader{
     background-color: rgb(243, 242, 242); 
     columns: 2; 
@@ -26,14 +29,21 @@
     font-size: 30px;
 }
 
-.containerAmbTotaInformacio{
-    position: relative;
-   height: 80vh;
-   width: 50%;
-   margin-top: 2vw;
-   margin-left: 2%;
-   background-color: #FFFFFF;
-   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
+/*Pàgina principal - Part centre de preguntes*/
+.containerSeparator{
+    display : flex;
+    flex-direction : row;
+}
+
+
+.containerPreguntas{
+    
+    height: 80vh;
+    width: 50%;
+    margin-top: 2vw;
+    margin-left: 2%;
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
 
 .txtTitolH1{
@@ -41,7 +51,7 @@
 }
 
 .containerQuestion{
-    overflow: auto;
+    /*overflow: auto;*/
     margin-top: 5%;
     margin-bottom: 2%;
     margin-left: 2%;
@@ -57,6 +67,7 @@
 }
 
 .containerFooter{
+    float: bottom;
     display: flex;
     margin-top: 30px;
     justify-content: center;
@@ -73,6 +84,16 @@
     width: 100px;
 }
 
+/*Pàgina principal - Part Llista preguntes*/
+.containerPreguntasEnviadas{
+   float: right;
+   width: 20%;
+   margin-top: 2%;
+}
+
+
+
+/*Etiquetes genereals*/
 p{
     font-size: 16px;
 }

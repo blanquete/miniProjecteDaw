@@ -28,34 +28,43 @@
 
     <script src="click.js"></script>
 
-    <div class="containerSeparator">
-   <div class="containerAmbTotaInformacio"><br>
-    <h1 class="txtTitolH1">Centre de preguntes</h1>
-    <form>
-    <div class="containerQuestion">
-        <label>Selecciona el teu problema:</label>
-        <br>
-        <br>
-        <select class="seleccio" required>
-            <option value="" hidden selected>Selecciona una opción</option>
-            <option value="problemaBBDD">Problemes base de dades</option>
-            <option value="errorCompilacio">Error de compilació</option>
-            <option value="errorUI">Error amb la interficie</option>
-            <option value="altres">Altres</option>
-        </select>
-    </div>
+<div class="containerSeparator">
+   <div class="containerPreguntas"><br>
+        <h1 class="txtTitolH1">Centre de preguntes</h1>
+        <form>
+            <div class="containerQuestion">
+                <label>Selecciona el teu problema:</label>
+                <br>
+                <br>
+                <select class="seleccio" required>
+                    <option value="" hidden selected>Selecciona una opción</option>
+                    <option value="problemaBBDD">Problemes base de dades</option>
+                    <option value="errorCompilacio">Error de compilació</option>
+                    <option value="errorUI">Error amb la interficie</option>
+                    <option value="altres">Altres</option>
+                </select>
+            </div>
 
-    <div class="containerQuestion">
-        <label>Introdueix el teu error:</label>
-        <br>
-        <br>
-        <input class="subrallat"  name="txtPreguntad" type="text" value="" required>
-    </div>
+            <div class="containerQuestion">
+                <label>Introdueix el teu error:</label>
+                <br>
+                <br>
+                <input class="subrallat"  name="txtPreguntad" type="text" value="" required>
+            </div>
 
-    <div class="containerButton"><button class="btnButtonEnviar">Enviar</button></div>
-    </form> 
-   </div>
+            <div class="containerButton"><button class="btnButtonEnviar">Enviar</button></div>
+        </form> 
+    </div>
+   
+        <div class="containerPreguntasEnviadas">
+            <div>
+                <p>HOLA</p>
+                <form action="" method="post">
+
+                </form>
+            </div>
         </div>
+</div>
     <footer>
         <div class="containerFooter">
             <p>By Isaac Prats, Adrià Torondel , Raul Blanco</p>
