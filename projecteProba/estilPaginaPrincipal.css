@@ -89,8 +89,14 @@ h1{
    margin-bottom: auto;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
-   overflow-y: scroll;
-   max-height: 80vh;
+   height: 80vh;
+}
+
+
+
+.scroll{
+    overflow-y: auto;
+    max-height: 72vh;
 }
 
 .txtTitolLlistat{
