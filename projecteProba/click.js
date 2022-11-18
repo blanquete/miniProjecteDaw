@@ -1,5 +1,7 @@
 const time = document.getElementById('time');
+let local = new Date();
+time.innerHTML = local.toLocaleTimeString();
 const interval = setInterval(() => {
-    const local = new Date();
+    local = new Date();
     time.innerHTML = local.toLocaleTimeString();
 }, 1000);

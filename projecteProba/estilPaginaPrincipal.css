@@ -39,9 +39,9 @@
 .containerPreguntas{
     
     height: 80vh;
-    width: 50%;
+    width: 45%;
     margin-top: 2vw;
-    margin-left: 2%;
+    margin-left: 4%;
     background-color: #FFFFFF;
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
@@ -86,13 +86,13 @@ h1{
    float: right;
    width: 44%;
    margin-top: 2%;
-   margin-left: 2%;
+   margin-left: 3%;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
 .txtTitolLlistat{
     text-align: center;
-    margin-top: 3%;
+    margin-top: 2.2%;
 }
 /*Etiquetes genereals*/
 p{
