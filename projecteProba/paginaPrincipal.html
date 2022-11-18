@@ -19,13 +19,11 @@
         <div class="containerIziquierda">
             <p class="clock" id="time">00:00:00</p>
         </div>
-       
         <!--Div derecha.-->
         <div class="containerDerecha">
             <p>Aqui tindrem el nostre gmail</p>
         </div>
     </div>
-
     <script src="click.js"></script>
 
 <div class="containerSeparator">
@@ -36,7 +34,7 @@
                 <label>Selecciona el teu problema:</label>
                 <br>
                 <br>
-                <select class="seleccio" required>
+                <select name="tipusQuestio" class="seleccio" required>
                     <option value="" hidden selected>Selecciona una opción</option>
                     <option value="problemaBBDD">Problemes base de dades</option>
                     <option value="errorCompilacio">Error de compilació</option>
@@ -59,15 +57,48 @@
         <div class="containerPreguntasEnviadas">
             <div>
                 <h1 class="txtTitolLlistat">Llistat de preguntes</h1>
-                <form action="" method="post">
-
-                </form>
+                <div class="containerQuestion">
+                    <div class="QuestionElements">
+                        <h3>Pregunta(es) feta(es)</h3>
+                        <br>
+                        <p id="txtProblema">Problema amb BBDD</p>
+                        <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                        <input type="button" value="Eliminar Pregunta">
+                    </div>
+                </div>
+                <div class="containerQuestion">
+                    <div class="QuestionElements">
+                        <h3>Pregunta(es) feta(es)</h3>
+                        <br>
+                        <p id="txtProblema">Problema amb BBDD</p>
+                        <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                        <input type="button" value="Eliminar Pregunta">
+                    </div>
+                </div>
+                <div class="containerQuestion">
+                    <div class="QuestionElements">
+                        <h3>Pregunta(es) feta(es)</h3>
+                        <br>
+                        <p id="txtProblema">Problema amb BBDD</p>
+                        <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                        <input type="button" value="Eliminar Pregunta">
+                    </div>
+                </div>
+                <div class="containerQuestion">
+                    <div class="QuestionElements">
+                        <h3>Pregunta(es) feta(es)</h3>
+                        <br>
+                        <p id="txtProblema">Problema amb BBDD</p>
+                        <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                        <input type="button" value="Eliminar Pregunta">
+                    </div>
+                </div>
             </div>
         </div>
 </div>
     <footer>
         <div class="containerFooter">
-            <p>By Isaac Prats, Adrià Torondel , Raul Blanco</p>
+            <p>By Isaac Prats, Adrià Torondel , Raul Blanco, Lluc Olivares</p>
         </div>
     </footer>
 </body>

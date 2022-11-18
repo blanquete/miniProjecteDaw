@@ -35,7 +35,6 @@
     flex-direction : row;
 }
 
-
 .containerPreguntas{
     
     height: 80vh;
@@ -87,13 +86,22 @@ h1{
    width: 44%;
    margin-top: 2%;
    margin-left: 3%;
+   margin-bottom: auto;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
+   overflow-y: scroll;
+   max-height: 80vh;
 }
+
 .txtTitolLlistat{
     text-align: center;
     margin-top: 2.2%;
 }
+
+.QuestionElements{
+    padding: 2%;
+}
+
 /*Etiquetes genereals*/
 p{
     font-size: 16px;
