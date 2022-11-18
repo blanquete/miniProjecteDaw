@@ -46,10 +46,6 @@
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
 
-.txtTitolH1{
-    text-align: center;
-}
-
 .containerQuestion{
     /*overflow: auto;*/
     margin-top: 5%;
@@ -62,8 +58,9 @@
     
 }
 
-.txtTitolH1{
+h1{
     font-size:40px;
+    text-align: center;
 }
 
 .containerFooter{
@@ -87,12 +84,16 @@
 /*Pàgina principal - Part Llista preguntes*/
 .containerPreguntasEnviadas{
    float: right;
-   width: 20%;
+   width: 44%;
    margin-top: 2%;
+   margin-left: 2%;
+   background-color: #FFFFFF;
+   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
 }
-
-
-
+.txtTitolLlistat{
+    text-align: center;
+    margin-top: 3%;
+}
 /*Etiquetes genereals*/
 p{
     font-size: 16px;
