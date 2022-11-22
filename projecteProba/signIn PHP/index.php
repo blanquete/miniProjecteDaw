@@ -94,7 +94,7 @@ if(!isset($_SESSION['access_token']))
    if($login_button == '')//si estem loginats mostrem el contingut del formulari
    {
 
-    echo '<div class="containerDerecha"><p>'.$_SESSION['user_email_address'].'</p></div><h3><a href="logout.php">Logout</a></h3></div>';
+    echo '<div class="containerDerecha"><p>'.$_SESSION['user_email_address'].'</p><p><a href="logout.php">Logout</a></p></div></div>';
     echo '<div class="containerAmbTotaInformacio">';
     
    }
@@ -111,31 +111,34 @@ if(!isset($_SESSION['access_token']))
         <h1 class="txtTitolH1">Centre de preguntes</h1>
     </div>
 
-    <form>
-   
-    <div class="containerQuestion">
-        <label>Selecciona el teu problema:</label>
-        <br>
-        <br>
-        <select class="seleccio">
-            <option value="" hidden selected>Selecciona una opción</option>
-            <option value="problemaBBDD">Problemes base de dades</option>
-            <option value="errorCompilacio">Error de compilació</option>
-            <option value="errorUI">Error amb la interficie</option>
-            <option value="altres">Altres</option>
-        </select>
+        <form>
+    
+            <div class="containerQuestion">
+                <label>Selecciona el teu problema:</label>
+                <br>
+                <br>
+                <select name="tipusQuestio" class="seleccio">
+                    <option value="" hidden selected>Selecciona una opción</option>
+                    <option value="problemaBBDD">Problemes base de dades</option>
+                    <option value="errorCompilacio">Error de compilació</option>
+                    <option value="errorUI">Error amb la interficie</option>
+                    <option value="altres">Altres</option>
+                </select>
+            </div>
+
+            <div class="containerQuestion">
+                <label>Introdueix el teu error:</label>
+                <br>
+                <br>
+                <input class="subrallat" name="txtPregunta" type="text" value="" required>
+            </div>
+            
+            <div class="containerButton"><button class="btnButtonEnviar">Enviar</button></div>
+
+        </form> 
     </div>
 
-    <div class="containerQuestion">
-        <label>Introdueix el teu error:</label>
-        <br>
-        <br>
-        <input class="subrallat"  name="txtPreguntad" type="text" value="" required>
-    </div>
-    </form> 
-   </div>
-
-<script src="click.js"></script>
+<script src="../click.js"></script>
     
 </body>
 </html>
