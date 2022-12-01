@@ -58,11 +58,6 @@
     
 }
 
-h1{
-    font-size:40px;
-    text-align: center;
-}
-
 .containerFooter{
     float: bottom;
     display: flex;
@@ -74,11 +69,6 @@ h1{
     text-align: center;
     margin: auto;
     padding-top: 20px;
-}
-
-.btnButtonEnviar{
-    height: 30px;
-    width: 100px;
 }
 
 /*Pàgina principal - Part Llista preguntes*/
@@ -93,7 +83,7 @@ h1{
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
    height: 80vh;
    padding-top: 2%;
-   overflow-y: hidden;
+   /*overflow-y: hidden;*/
 }
 
 /*Div que esta dentro del div principal de containerPreguntasEnviadas*/ 
@@ -108,20 +98,12 @@ h1{
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.39), 0 1px 20px 0 rgba(0, 0, 0, 0.233);
     
 }
-
 .scroll{
     overflow-y: auto;
-    max-height: 72vh;
+    max-height: 70vh;
 }
-
-.txtTitolLlistat{
-    text-align: center;
-    margin-top: 2.2%;
-}
-
-
 
 /*Etiquetes genereals*/
 p{
-    font-size: 16px;
+    font-size: 14px;
 }
