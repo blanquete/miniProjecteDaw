@@ -54,7 +54,7 @@
     margin-right: 2%;
     background-color: #FFFFFF ;
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.39), 0 1px 20px 0 rgba(0, 0, 0, 0.233);
-    height: 170px;
+    height: 150px;
     
 }
 
@@ -82,32 +82,17 @@ h1{
 }
 
 /*Pàgina principal - Part Llista preguntes*/
-/*Padre*/
 .containerPreguntasEnviadas{
    float: right;
    width: 44%;
-   margin-top: 2.98%;
+   margin-top: 2%;
    margin-left: 3%;
    margin-bottom: auto;
    background-color: #FFFFFF;
    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.212), 0 5px 40px 0 rgba(0,0,0,0.19);
    height: 80vh;
-   padding-top: 2%;
-   overflow-y: hidden;
 }
 
-/*Div que esta dentro del div principal de containerPreguntasEnviadas*/ 
-/*Hijo del padre*/
-.containerPreguntaFeta{
-    margin-top: 7%;
-    margin-bottom: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding-bottom: 2%;
-    background-color: #FFFFFF ;
-    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.39), 0 1px 20px 0 rgba(0, 0, 0, 0.233);
-    
-}
 
 .scroll{
     overflow-y: auto;
@@ -118,7 +103,6 @@ h1{
     text-align: center;
     margin-top: 2.2%;
 }
-
 
 
 /*Etiquetes genereals*/
