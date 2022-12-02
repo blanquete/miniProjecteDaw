@@ -39,6 +39,8 @@
     margin-left: 4%;
     background-color: #FFFFFF;
     margin-bottom: auto;
+    overflow-y:auto;
+
 }
 
 .containerQuestion{
@@ -50,6 +52,7 @@
 }
 .containerButton{
     text-align: center;
+    padding-top: 3.5vh;
 }
 
 /*Pàgina principal - Part Llista preguntes*/
