@@ -30,11 +30,10 @@
 /*Pàgina principal - Part centre de preguntes*/
 .containerSeparator{
     display : flex;
-    background-color: aqua;
 }
 
 .containerPreguntas{
-    /*height: 80vh;*/
+    height: 80vh;
     width: 45%;
     margin-top: 2vw;
     margin-left: 4%;
@@ -78,7 +77,6 @@
     background-color: #FFFFFF ;
 }
 .scroll{
-   
     max-height: 70vh;
 }
 
