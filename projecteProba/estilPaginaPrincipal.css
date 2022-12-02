@@ -67,6 +67,8 @@
    height: 80vh;
    padding-top: 2%;
    overflow-y: auto;
+   overflow-wrap: normal;
+   
 }
 
 /*Div que esta dentro del div principal de containerPreguntasEnviadas*/ 
@@ -78,6 +80,8 @@
     margin-right: 2%;
     padding-bottom: 2%;
     background-color: #FFFFFF ;
+    overflow-wrap: normal;
+    overflow-x: auto;
 }
 .scroll{
     max-height: 70vh;
