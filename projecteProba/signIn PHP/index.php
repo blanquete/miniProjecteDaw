@@ -137,6 +137,49 @@ if(!isset($_SESSION['access_token']))
 
         </form> 
     </div>
+    <div class="containerPreguntasEnviadas">
+            <div>
+                <h1 class="txtTitolLlistat">Llistat de preguntes</h1>
+                <div class="scroll">
+                    <div class="containerQuestion">
+                        <div class="QuestionElements">
+                            <h3>Pregunta(es) feta(es)</h3>
+                            <br>
+                            <p id="txtProblema">Problema amb BBDD</p>
+                            <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                            <input type="button" value="Eliminar Pregunta">
+                        </div>
+                    </div>
+                    <div class="containerQuestion">
+                        <div class="QuestionElements">
+                            <h3>Pregunta(es) feta(es)</h3>
+                            <br>
+                            <p id="txtProblema">Problema amb BBDD</p>
+                            <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                            <input type="button" value="Eliminar Pregunta">
+                        </div>
+                    </div>
+                    <div class="containerQuestion">
+                        <div class="QuestionElements">
+                            <h3>Pregunta(es) feta(es)</h3>
+                            <br>
+                            <p id="txtProblema">Problema amb BBDD</p>
+                            <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                            <input type="button" value="Eliminar Pregunta">
+                        </div>
+                    </div>
+                    <div class="containerQuestion">
+                        <div class="QuestionElements">
+                            <h3>Pregunta(es) feta(es)</h3>
+                            <br>
+                            <p id="txtProblema">Problema amb BBDD</p>
+                            <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                            <input type="button" value="Eliminar Pregunta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <script src="../click.js"></script>
     
