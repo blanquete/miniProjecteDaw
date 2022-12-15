@@ -5,3 +5,5 @@ const interval = setInterval(() => {
     local = new Date();
     time.innerHTML = local.toLocaleTimeString();
 }, 1000);
+
+
