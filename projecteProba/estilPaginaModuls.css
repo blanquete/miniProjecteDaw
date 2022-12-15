@@ -21,8 +21,19 @@
     box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
     cursor: pointer;
 }
+.module:hover {
+    box-shadow: 10px 10px 150px rgba(0,0,0,0.1);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 70%, rgba(208, 208, 208, 1) 97.5%, rgba(190, 190, 190    , 1) 100%);
+}
 
-.module > h1 {
+.module > a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.module > a > h1 {
     font-size: 50px;
     margin-top: 0;
 }
