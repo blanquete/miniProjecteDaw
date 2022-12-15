@@ -54,6 +54,8 @@ class Html
 
     //FUNCTIONS
 
+        //AFEGIR CONTINGUT
+
     public function afegirBody($value)
     {
         $this->body .= $value;
@@ -64,6 +66,8 @@ class Html
         $this->head .= $value;
     }
 
+        //IMPRIMIR CONTINGUT
+    
     public function imprimirPagina()
     {
         echo $this->getDoctype();
@@ -78,14 +82,31 @@ class Html
     }
 }
 
+//ACCEDIR ALS COMPONENTS
+
+function llegirComponent($nomFitxer)
+{
+    $f = fopen($nomFitxer, "r");
+
+    $component = "";
+    
+    while(!feof($f))
+    {
+        $linea = fgets($f);
+        $component .= $linea; 
+    }
+
+    return $component;
+}
+
 $ht = new Html();
 
 $head = '<link rel="stylesheet" type="text/css" href="../estilPaginaModuls.css" media="screen"><script src="../module.js"></script>;';
 
-$body = "<div class=\"containerModules\"><div class=\"module\" onclick='moduleClicked(\"M01\")'>    <h1>M01</h1></div><div class=\"module\" onclick='moduleClicked(\"M02\")'>    <h1>M02</h1></div><div class=\"module\" onclick='moduleClicked(\"M03\")'>    <h1>M03</h1></div><div class=\"module\" onclick='moduleClicked(\"M04\")'>    <h1>M04</h1></div><div class=\"module\" onclick='moduleClicked(\"M04\")'>    <h1>M04</h1></div><div class=\"module\" onclick='moduleClicked(\"M04\")'>    <h1>M04</h1></div><div class=\"module\" onclick='moduleClicked(\"M04\")'>    <h1>M04</h1></div></div>";
+
 
 $ht->afegirHead($head);
-$ht->afegirBody($body);
+$ht->afegirBody(llegirComponent("assignatures.html"));
 
 $ht->imprimirPagina();
 
