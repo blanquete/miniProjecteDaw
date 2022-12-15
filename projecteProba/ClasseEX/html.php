@@ -14,7 +14,6 @@ class Html
     private $body;
     private $closeBody;
 
-
     private $closeHtml;
 
 
@@ -52,9 +51,9 @@ class Html
     public function setBody($value){$this->body = $value;}
 
 
-    //FUNCTIONS
+//FUNCTIONS
 
-        //AFEGIR CONTINGUT
+    //AFEGIR CONTINGUT
 
     public function afegirBody($value)
     {
@@ -66,7 +65,7 @@ class Html
         $this->head .= $value;
     }
 
-        //IMPRIMIR CONTINGUT
+    //IMPRIMIR CONTINGUT
     
     public function imprimirPagina()
     {
