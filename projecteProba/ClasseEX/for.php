@@ -14,7 +14,7 @@
     //     array("modul" => "m09", "profe" => "Angel", "idSala" => "9")
     // );
     
-    function crearButons($moduls)
+    functionx crearButons($moduls)
     {
         $btnSala = " <div class='col'>
             <button class='btn btn-light shadow p-3 mb-5 bg-body rounded  border-success' value='str_idSala'><h5>str_nom_modul</h5><br>Professor(a): str_nom_professor</button>
