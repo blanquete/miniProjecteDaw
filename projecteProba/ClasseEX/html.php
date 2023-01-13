@@ -1,5 +1,17 @@
 <?php
 
+
+include_once("../Classes/assignatura.php");
+include_once("../Classes/grup.php");
+include_once("../Classes/questio.php");
+include_once("../Classes/rol.php");
+include_once("../Classes/tipusQuestio.php");
+include_once("../Classes/user.php");
+include_once("config.php");
+include_once("index.php");
+include_once("logout.php");
+
+
 class Html
 {
     private $doctype;
@@ -17,7 +29,7 @@ class Html
     private $closeHtml;
 
 
-    function __constructor($lang = "es")
+    function __construct($lang = "es")
     {
         $this->doctype = "<!DOCTYPE html>";
     
@@ -65,6 +77,65 @@ class Html
         $this->head .= $value;
     }
 
+    
+
+    //ACCEDIR ALS COMPONENTS
+
+    public function llegirComponent($nomFitxer)
+    {
+        $f = fopen($nomFitxer, "r");
+
+        $component = "";
+        
+        while(!feof($f))
+        {
+            $linea = fgets($f);
+            $component .= $linea; 
+        }
+
+        return $component;
+    }
+
+    //MODULS
+
+    public function capcaleraPagina(User $user = null)
+    {
+
+        if(isset($user))
+        {
+            $cap = str_replace("str_email_str", $user->getEmail(), llegirComponent("header.html"));
+        }
+        else
+        {
+            $login_button = '<a href="'.$google_client->createAuthUrl().'">Iniciar Sessio</a>';
+
+            //$cap = str_replace("str_email_str", $login_button, llegirComponent("header.html"));
+        }
+
+        return $cap;
+    }
+
+
+
+
+
+
+    public function moduls($mods)
+    {
+        $componentModuls = "<div class='containerModules'>";
+
+        foreach($mods as $m)
+        {
+            $modTxt = str_replace("str_nom_assignatura_str", $m->getValor(), $this->llegirComponent("btnAssignatura.html"));
+
+            $componentModuls .= $modTxt;
+        }
+
+        $componentModuls .= "</div>";
+
+        return $componentModuls;
+    }
+
     //IMPRIMIR CONTINGUT
     
     public function imprimirPagina()
@@ -80,33 +151,5 @@ class Html
         echo "</html>";
     }
 }
-
-//ACCEDIR ALS COMPONENTS
-
-function llegirComponent($nomFitxer)
-{
-    $f = fopen($nomFitxer, "r");
-
-    $component = "";
-    
-    while(!feof($f))
-    {
-        $linea = fgets($f);
-        $component .= $linea; 
-    }
-
-    return $component;
-}
-
-$ht = new Html();
-
-$head = '<link rel="stylesheet" type="text/css" href="../estilPaginaModuls.css" media="screen"><script src="../module.js"></script>;';
-
-
-
-$ht->afegirHead($head);
-$ht->afegirBody(llegirComponent("assignatures.html"));
-
-$ht->imprimirPagina();
 
 ?>

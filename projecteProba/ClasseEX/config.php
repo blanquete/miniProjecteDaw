@@ -2,8 +2,14 @@
 
 //config.php
 
+
+//start session on web page
+
+
+session_start();
+
 //Include Google Client Library for PHP autoload file
-require_once 'vendor/autoload.php';
+require_once '../signIn PHP/vendor/autoload.php';
 
 //Make object of Google API Client for call Google API
 $google_client = new Google_Client();
@@ -25,8 +31,5 @@ $google_client->setRedirectUri('http://localhost/miniProjecteDaw/projecteProba/C
 $google_client->addScope('email');
 
 $google_client->addScope('profile');
-
-//start session on web page
-session_start();
 
 ?>

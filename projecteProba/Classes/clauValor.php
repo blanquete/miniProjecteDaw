@@ -2,10 +2,10 @@
 
     class ClauValor
     {
-        private $id;
-        private $valor;
+        protected $id;
+        protected $valor;
 
-        function __constructor($id_, $valor_)
+        function __construct($id_, $valor_)
         {
             $this->id = $id_;
             $this->valor = $valor_;
