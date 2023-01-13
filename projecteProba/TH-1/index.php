@@ -59,14 +59,35 @@ else
 <?php
     if ($login_button == '')
     {
-
-        $page = llegirComponent("pages/formulariPreguntes.html");
-
-
-        $page = str_replace("str_email_str", $email, $page);
-
+        pageFormulariPreguntes($email);
         
-        echo $page;
+        /*switch($page)
+        {
+            case "llistaModuls":
+
+                pageLlistaModuls();
+
+                break;
+            case "formulariPreguntes":
+
+                pageFormulariPreguntes();
+
+                break;
+            case "perfilUsuari":
+
+                pagePerfilUsuari();
+
+                break;
+
+            // case "formulariPreguntes":
+
+
+            //     break;
+            // case "formulariPreguntes":
+
+
+            //     break;
+        }*/
 
 
     }
@@ -81,17 +102,60 @@ else
 
     function llegirComponent($nomFitxer)
     {
-        $f = fopen($nomFitxer, "r");
-
-        $component = "";
-        
-        while(!feof($f))
-        {
-            $linea = fgets($f);
-            $component .= $linea; 
-        }
+        $component = file_get_contents($nomFitxer);
 
         return $component;
+    }
+
+    function replaceTxt($nomFitxer, $search, $replacement)
+    {
+        $component = llegirComponent($nomFitxer);
+
+        $component = str_replace($search, $replacement, $component);
+
+        return $component;
+    }
+
+    function pageLlistaModuls($nomModul, $nomProfessor)
+    {
+        //Textos a canviar 
+            //str_nom_modul
+            //str_nom_professor
+            //str_idSala
+
+        $page = llegirComponent("pages/llistaModuls.html");
+
+
+        $page = str_replace("str_exemple", $XXXXXX, $page);
+
+        
+        echo $page;
+    }
+
+    function pageFormulariPreguntes($e)
+    {
+        //Textos a canviar 
+            //str_email
+
+        $page = llegirComponent("pages/formulariPreguntes.html");
+
+
+        $page = str_replace("str_email", $e, $page);
+
+        
+        echo $page;
+    }
+
+    function pagePerfilUsuari()
+    {
+
+        $page = llegirComponent("pages/formulariPreguntes.html");
+
+
+        $page = str_replace("str_exemple", $XXXXXX, $page);
+
+        
+        echo $page;
     }
 
 ?>

@@ -1,0 +1,96 @@
+*{
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.body{
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 71%, rgba(159, 159, 159, 1) 100%);
+}
+
+/*Pàgina principal - Part Header*/
+
+.containerHeader{
+    background-color: rgb(243, 242, 242); 
+    columns: 2; 
+}
+
+.containerIziquierda{
+    padding-left: 2%;
+}
+
+.containerDerecha{
+    margin-top: 5px;
+    float: right;
+    font-size: 20px;
+    vertical-align: center;
+}
+.clock{
+    font-size: 30px;
+}
+
+/*Pàgina principal - Part centre de preguntes*/
+.containerSeparator{
+    display : flex;
+}
+
+.containerPreguntas{
+    height: 80vh;
+    width: 45%;
+    margin-top: 2vw;
+    margin-left: 4%;
+    background-color: #FFFFFF;
+    margin-bottom: auto;
+    overflow-y:auto;
+
+}
+
+.containerQuestion{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #FFFFFF ;
+    height: 150px;
+}
+.containerButton{
+    text-align: center;
+    padding-top: 3.5vh;
+}
+
+/*Pàgina principal - Part Llista preguntes*/
+/*Padre*/
+.containerPreguntasEnviadas{
+   float: right;
+   width: 44%;
+   margin-top: 2.98%;
+   margin-left: 3%;
+   margin-bottom: auto;
+   background-color: #FFFFFF;
+   height: 80vh;
+   padding-top: 2%;
+   overflow-y: auto;
+   overflow-wrap: normal;
+   
+}
+
+/*Div que esta dentro del div principal de containerPreguntasEnviadas*/ 
+/*Hijo del padre*/
+.containerPreguntaFeta{
+    margin-top: 7%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-bottom: 2%;
+    background-color: #FFFFFF ;
+    overflow-wrap: normal;
+    overflow-x: auto;
+}
+.scroll{
+    max-height: 70vh;
+}
+
+footer{
+    padding-top: 2vh;
+}
+/*Etiquetes genereals*/
+p{
+    font-size: 14px;
+}
