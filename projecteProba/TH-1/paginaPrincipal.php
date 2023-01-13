@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <link rel="icon" href="https://cdn.icon-icons.com/icons2/738/PNG/512/doughnut_icon-icons.com_63187.png">
+    <link rel="stylesheet" type="text/css" href="estilPaginaPrincipal.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="estilInput.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="animacioBoton.css" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Teacher Help</title>
+</head>
+<body class="body"> 
+    <div class="container-fluid containerHeader" data-aos="fade-up">
+        <!-- Div izquierda-->
+        <div class="containerIziquierda">
+            <p class="clock" id="time">00:00:00</p>
+        </div>
+        <!--Div derecha.-->
+        <div class="containerDerecha">
+            <p> Email:<?php $email ?></p>
+        </div>
+    </div>
+    <script src="click.js"></script>
+
+<div class="container containerSeparator"  data-aos="zoom-in-right">
+   <div class="container containerPreguntas shadow p-3 rounded bg-light">
+        <h1 class="text-center display-6">Centre de preguntes</h1>
+        <form>
+            <div class="container containerQuestion shadow p-3  bg-body rounded">
+                <label>Selecciona el teu problema:</label>
+                <br>
+                <br>
+                <select name="tipusQuestio" class="seleccio" required>
+                    <option value="" hidden selected>Selecciona una opción</option>
+                    <option value="problemaBBDD">Problemes base de dades</option>
+                    <option value="errorCompilacio">Error de compilació</option>
+                    <option value="errorUI">Error amb la interficie</option>
+                    <option value="altres">Altres</option>
+                </select>
+            </div>
+
+            <div class="container containerQuestion shadow p-3  bg-body rounded">
+                <label>Introdueix el teu error:</label>
+                <br>
+                <br>
+                <input class="subrallat"  name="txtPreguntas" type="text" value="" required>
+            </div>
+            <div class="containerButton"><button  class="btn btn-success btn-lg">Preguntar</button></div>
+        </form> 
+    </div>
+   
+    <div data-aos="zoom-in-left" class="containerPreguntasEnviadas shadow p-3  bg-body rounded" >
+        <div>
+            <h1 class="text-center display-6">Llistat</h1>
+            
+            <div data-bs-spy="scroll" class="container scroll">
+                <div class="containerPreguntaFeta shadow p-3  bg-body rounded">
+                    <h5>Pregunta(es) feta(es)</h5>
+                    <p id="txtProblema">Problema amb BBDD</p>
+                    <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                    <button type="submit" class="btn btn-danger btn-sm btnControlPreguntar">Eliminar Pregunta</button>
+                    <input type="button" class="btn btn-success btn-sm btnControlPreguntar"value="Pregunta resolta">
+                </div>
+                <div class="containerPreguntaFeta shadow p-3  bg-body rounded">
+                    <h5>Pregunta(es) feta(es)</h5>
+                    <p id="txtProblema">Problema amb BBDD</p>
+                    <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                    <input type="button" class="btn btn-danger btn-sm btnControlPreguntar" value="Eliminar Pregunta">
+                    <input type="button" class="btn btn-success btn-sm btnControlPreguntar"value="Pregunta resolta">
+                </div>
+                <div class="containerPreguntaFeta shadow p-3  bg-body rounded">
+                    <h5>Pregunta(es) feta(es)</h5>
+                    <p id="txtProblema">Problema amb BBDD</p>
+                    <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                    <input type="button" class="btn btn-danger btn-sm btnControlPreguntar" value="Eliminar Pregunta">
+                    <input type="button" class="btn btn-success btn-sm btnControlPreguntar"value="Pregunta resolta">
+                </div>
+                <div class="containerPreguntaFeta shadow p-3  bg-body rounded">
+                    <h5>Pregunta(es) feta(es)</h5>
+                    <p id="txtProblema">Problema amb BBDD</p>
+                    <p id="txtError">Intento entrar en la BBDD pero no funciona</p>
+                    <input type="button"  class="btn btn-danger btn-sm btnControlPreguntar" value="Eliminar Pregunta">
+                    <input type="button" class="btn btn-success btn-sm btnControlPreguntar"value="Pregunta resolta">
+                </div>
+
+                
+                <div class="container">
+                    <p>&nbsp;</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container text-center" >
+            <p>By Isaac Prats, Adrià Torondel , Raul Blanco, Lluc Oliveras</p>
+        </div>
+    </footer>
+    <script>
+        AOS.init();
+      </script>
+</body>
+</html>
