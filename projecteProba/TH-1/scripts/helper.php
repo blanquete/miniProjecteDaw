@@ -1,6 +1,6 @@
 <?php
 
-    
+
 
 
     function llegirComponent($nomFitxer)
@@ -92,6 +92,9 @@
         //Textos a canviar 
             //str_email
             //str_header
+            //str_question
+                // str_title_question
+                // str_txt_question
 
         $page = llegirComponent("pages/formulariPreguntes.html");
 
