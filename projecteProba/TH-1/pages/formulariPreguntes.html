@@ -33,20 +33,14 @@
         <h1 class="text-center display-6">Centre de preguntes</h1>
         <form>
             <div class="container containerQuestion shadow p-3  bg-body rounded">
-                <label>Selecciona el teu problema:</label>
+                <label>Quin problema tens?</label>
                 <br>
                 <br>
-                <select name="tipusQuestio" class="seleccio" required>
-                    <option value="" hidden selected>Selecciona una opción</option>
-                    <option value="problemaBBDD">Problemes base de dades</option>
-                    <option value="errorCompilacio">Error de compilació</option>
-                    <option value="errorUI">Error amb la interficie</option>
-                    <option value="altres">Altres</option>
-                </select>
+                <input class="subrallat" name="txtPreguntas" type="text" value="" required>
             </div>
 
             <div class="container containerQuestion shadow p-3  bg-body rounded">
-                <label>Introdueix el teu error:</label>
+                <label>Descriu el teu error</label>
                 <br>
                 <br>
                 <input class="subrallat"  name="txtPreguntas" type="text" value="" required>
