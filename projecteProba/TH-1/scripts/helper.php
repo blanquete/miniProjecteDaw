@@ -1,7 +1,8 @@
 <?php
 
-    
 
+?>
+<?php
 
     function llegirComponent($nomFitxer)
     {
@@ -60,13 +61,12 @@
         $btnModul = "";
 
 
-
         foreach ($moduls as $key => $value) {
             $btn = str_replace("str_idSala", $value["idSala"], $btnSala);
             $btn = str_replace("str_nom_professor", $value["profe"], $btn);
             $btn = str_replace("str_nom_modul", $value["modul"], $btn);
     
-            if($key%3==0){
+            if($key % 3 == 0){
                 $aux = "<div class='row'>";
     
                 $btn = $aux . $btn;
@@ -87,37 +87,48 @@
 
     //Pagina Formulari Preguntes
 
-    function pageFormulariPreguntes($e)
+    function pageFormulariPreguntes($e, $ps, $m)
     {
         //Textos a canviar 
             //str_email
             //str_header
+                //str_email
+            //str_llistat_preguntes
+                // str_title_question
+                // str_txt_question
+            //str_modul
 
         $page = llegirComponent("pages/formulariPreguntes.html");
 
 
         $header = getHeader($e);
+        $llistatPreguntes = crearLlistatPreguntes($ps);
 
         $page = str_replace("str_email", $e, $page);
         $page = str_replace("str_header", $header, $page);
+        $page = str_replace("str_llistat_preguntes", $llistatPreguntes, $page);
+        $page = str_replace("str_modul", $m, $page);
 
         
         echo $page;
     }
 
+    function crearLlistatPreguntes($preguntes)
+    {
+        // str_title_question
+        // str_txt_question
 
-    //Pagina Perfil
-
-    // function pagePerfilUsuari()
-    // {
-
-    //     $page = llegirComponent("pages/formulariPreguntes.html");
+        $divPregunta = file_get_contents("./pages/components/containerPregunta.html");
+        $llistatPreguntes = "";
 
 
-    //     $page = str_replace("str_exemple", $XXXXXX, $page);
 
-        
-    //     echo $page;
-    // }
-
+        foreach ($preguntes as $key => $value) {
+            $pregunta = str_replace("str_title_question", $value["title"], $divPregunta);
+            $pregunta = str_replace("str_txt_question", $value["pregunta"], $pregunta);
+    
+            $llistatPreguntes .=  $pregunta;
+        }
+        return $llistatPreguntes;
+    }
 ?>
