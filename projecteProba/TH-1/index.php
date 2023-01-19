@@ -89,9 +89,9 @@ else
 }
 
 
-$page = "llistaModuls";
-$page = "formulariPreguntes";
-$page = "mostrarSession";
+// $page = "llistaModuls";
+// $page = "formulariPreguntes";
+// $page = "mostrarSession";
 
 
 ?>
