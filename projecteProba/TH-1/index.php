@@ -53,8 +53,28 @@ else
         $desti = $_POST["desti"];
         if($desti == "formulariPreguntes")
         {
-            //carregar preguntes
+            if(isset($_POST["idModul"]))
+            {
+                $modul = $_POST["idModul"];
+            }
 
+
+
+            //carregar preguntes
+            $preguntesAlumne = array(
+                array("title" => "Titol Pregunta 1", "pregunta" => "Descripcio Pregunta 1"),
+                array("title" => "Titol Pregunta 2", "pregunta" => "Descripcio Pregunta 2"),
+                array("title" => "Titol Pregunta 3", "pregunta" => "Descripcio Pregunta 3"),
+                array("title" => "Titol Pregunta 4", "pregunta" => "Descripcio Pregunta 4"),
+                array("title" => "Titol Pregunta 5", "pregunta" => "Descripcio Pregunta 5"),
+                array("title" => "Titol Pregunta 6", "pregunta" => "Descripcio Pregunta 6"),
+                array("title" => "Titol Pregunta 7", "pregunta" => "Descripcio Pregunta 7"),
+                array("title" => "Titol Pregunta 8", "pregunta" => "Descripcio Pregunta 8"),
+                array("title" => "Titol Pregunta 9", "pregunta" => "Descripcio Pregunta 9"),
+                array("title" => "Titol Pregunta 10", "pregunta" => "Descripcio Pregunta 10"),
+                array("title" => "Titol Pregunta 11", "pregunta" => "Descripcio Pregunta 11"),
+                array("title" => "Titol Pregunta 12", "pregunta" => "Descripcio Pregunta 12")
+            );
             //^^^^^^^^^^^^^^^^^^^^
         }
     }
@@ -112,7 +132,7 @@ else
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes($email);
+                pageFormulariPreguntes($email, $preguntesAlumne, $modul);
 
                 break;
             case "perfilUsuari":
