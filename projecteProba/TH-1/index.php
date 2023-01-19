@@ -112,7 +112,7 @@ $page = "mostrarSession";
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes();
+                pageFormulariPreguntes($email);
 
                 break;
             case "perfilUsuari":

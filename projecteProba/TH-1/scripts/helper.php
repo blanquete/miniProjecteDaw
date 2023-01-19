@@ -1,5 +1,8 @@
 <?php
 
+    
+
+
     function llegirComponent($nomFitxer)
     {
         $component = file_get_contents($nomFitxer);
@@ -30,9 +33,11 @@
     function pageLlistaModuls($email, $moduls)
     {
         //Textos a canviar 
-            //str_nom_modul
-            //str_nom_professor
-            //str_idSala
+            //moduls
+                //str_nom_modul
+                //str_nom_professor
+                //str_idSala
+            //str_header
 
         $page = llegirComponent("./pages/llistaModuls.html");
 
@@ -86,11 +91,15 @@
     {
         //Textos a canviar 
             //str_email
+            //str_header
 
         $page = llegirComponent("pages/formulariPreguntes.html");
 
 
+        $header = getHeader($e);
+
         $page = str_replace("str_email", $e, $page);
+        $page = str_replace("str_header", $header, $page);
 
         
         echo $page;
