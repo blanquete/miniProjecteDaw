@@ -11,15 +11,6 @@
         return $component;
     }
 
-    function replaceTxt($nomFitxer, $search, $replacement)
-    {
-        $component = llegirComponent($nomFitxer);
-
-        $component = str_replace($search, $replacement, $component);
-
-        return $component;
-    }
-
     function getHeader($e)
     {
         $header = file_get_contents("./pages/components/header.html");
@@ -34,10 +25,11 @@
     function pageLlistaModuls($email, $moduls)
     {
         //Textos a canviar 
-            //moduls
-                //str_nom_modul
-                //str_nom_professor
-                //str_idSala
+            //moduls []
+                //[]
+                    //str_nom_modul
+                    //str_nom_professor
+                    //str_idSala
             //str_header
 
         $page = llegirComponent("./pages/llistaModuls.html");
