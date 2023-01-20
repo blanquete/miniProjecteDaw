@@ -32,24 +32,31 @@
    
    <div class="container containerPreguntas shadow p-3 rounded bg-light">
 
-    <button class="btn btn-danger">Sales</button>
+        <form action="index.php" method="post">
+            <input type="hidden" name="desti" value="llistaModuls">
+            <button type="submit" class="btn btn-danger">Sales</button>
+        </form>
         <h1 class="text-center display-6">Centre de preguntes - str_modul</h1>
 
-        <form>
+        <form action="index.php" method="post">
+            <input type="hidden" name="idModul" value="str_modul">
             <div class="container containerQuestion shadow p-3  bg-body rounded">
                 <label>Quin problema tens?</label>
                 <br>
                 <br>
-                <input class="subrallat" name="txtPreguntas" type="text" value="" required>
+                <input class="subrallat" name="titlePregunta" type="text" value="" required>
             </div>
 
             <div class="container containerQuestion shadow p-3  bg-body rounded">
                 <label>Descriu el teu error</label>
                 <br>
                 <br>
-                <input class="subrallat"  name="txtPreguntas" type="text" value="" required>
+                <input class="subrallat" name="txtPregunta" type="text" value="" required>
             </div>
-            <div class="containerButton"><button  class="btn btn-success btn-lg">Preguntar</button></div>
+            <div class="containerButton">
+                <input type="hidden" name="desti" value="formulariPreguntes">
+                <button name="accio" value="enviarPregunta" type="submit" class="btn btn-success btn-lg">Preguntar</button>
+            </div>
         </form> 
     </div>
    
