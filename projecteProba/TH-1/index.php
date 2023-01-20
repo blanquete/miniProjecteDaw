@@ -43,19 +43,65 @@ if (isset($_GET["code"])) {
 }
 
 //Ancla para iniciar sesión
-if (!isset($_SESSION['access_token'])) {
+if (!isset($_SESSION['access_token'])) {//Si no estem loguinats preparem el boto de LOGIN
     $login_button = '<a href="' . $google_client->createAuthUrl() . '" style=" background: #dd4b39; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;">Login With Google</a>';
 }
 else
-{
+{//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
+    $email = $_SESSION['user_email_address'];
+
+
     if(isset($_POST["desti"]))
     {
         $desti = $_POST["desti"];
-        if($desti == "formulariPreguntes")
+        if($desti == "llistaModuls")
+        {   
+            
+
+            //Amb l'id de l'usuari obtenim aquesta llista
+            $moduls = array(
+                array("modul" => "m01", "profe" => "Angel", "idSala" => "1"),
+                array("modul" => "m02", "profe" => "Angel", "idSala" => "2"),
+                array("modul" => "m03", "profe" => "Angel", "idSala" => "3"),
+                array("modul" => "m04", "profe" => "Angel", "idSala" => "4"),
+                array("modul" => "m05", "profe" => "Angel", "idSala" => "5"),
+                array("modul" => "m06", "profe" => "Angel", "idSala" => "6"),
+                array("modul" => "m07", "profe" => "Angel", "idSala" => "7"),
+                array("modul" => "m08", "profe" => "Angel", "idSala" => "8"),
+                array("modul" => "m09", "profe" => "Angel", "idSala" => "9")
+            );
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        }
+        else if($desti == "formulariPreguntes")
         {
             if(isset($_POST["idModul"]))
             {
                 $modul = $_POST["idModul"];
+            }
+
+
+            if(isset($_POST["accio"]))
+            {
+                $accio = $_POST["accio"];
+
+                switch($accio)
+                {
+                    case "enviarPregunta":
+
+                        print_r($_POST);
+
+
+                        break;
+
+                    case "resoldre":
+
+                        break;
+
+                    case "eliminar":
+
+                        break;
+
+                }
             }
 
 
@@ -96,14 +142,6 @@ else
         );
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }
-
-
-
-
-
-    $nom = $_SESSION['user_first_name'];
-    $cognom = $_SESSION['user_last_name'];
-    $email = $_SESSION['user_email_address'];
 
     
 }
