@@ -60,15 +60,15 @@ else
 
             //Amb l'id de l'usuari obtenim aquesta llista
             $moduls = array(
-                array("modul" => "m01", "profe" => "Angel", "idSala" => "1"),
-                array("modul" => "m02", "profe" => "Angel", "idSala" => "2"),
-                array("modul" => "m03", "profe" => "Angel", "idSala" => "3"),
-                array("modul" => "m04", "profe" => "Angel", "idSala" => "4"),
-                array("modul" => "m05", "profe" => "Angel", "idSala" => "5"),
-                array("modul" => "m06", "profe" => "Angel", "idSala" => "6"),
-                array("modul" => "m07", "profe" => "Angel", "idSala" => "7"),
-                array("modul" => "m08", "profe" => "Angel", "idSala" => "8"),
-                array("modul" => "m09", "profe" => "Angel", "idSala" => "9")
+                array("modul" => "M01", "profe" => "Angel", "idSala" => "1"),
+                array("modul" => "M02", "profe" => "Ruben", "idSala" => "2"),
+                array("modul" => "M03", "profe" => "Francesc", "idSala" => "3"),
+                array("modul" => "M04", "profe" => "Quim", "idSala" => "4"),
+                array("modul" => "M05", "profe" => "Jordi", "idSala" => "5"),
+                array("modul" => "M06", "profe" => "Nicolau", "idSala" => "6"),
+                array("modul" => "M07", "profe" => "Lluis", "idSala" => "7"),
+                array("modul" => "M08", "profe" => "Gloria", "idSala" => "8"),
+                array("modul" => "M09", "profe" => "Alex", "idSala" => "9")
             );
             //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         }
