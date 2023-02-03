@@ -53,7 +53,7 @@
 
         
         echo $page;
-    }
+    } 
 
     function crearBtnsModul($moduls)
     {
