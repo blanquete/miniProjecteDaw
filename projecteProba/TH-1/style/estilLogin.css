@@ -1,0 +1,21 @@
+body
+{
+    margin: 0%;
+    padding: 0%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 71%, rgba(159, 159, 159, 1) 100%);
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.contenedorPrincipal
+{
+    margin-top: 250px;
+    width: 800px;
+    height: 300px;
+}
+
+.contenedorBotonLogin
+{
+    text-align: center;
+    margin: auto;
+    display: center;
+   
+}
