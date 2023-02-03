@@ -20,9 +20,12 @@ $google_client->setClientSecret('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');
 //Set the OAuth 2.0 Redirect URI
 $google_client->setRedirectUri('http://localhost/miniProjecteDaw/projecteProba/TH-1/index.php');
 
-//
+//print_r($google_client);
+
 $google_client->addScope('email');
 
 $google_client->addScope('profile');
+
+//print_r($google_client);
 
 ?>

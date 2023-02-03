@@ -20,6 +20,14 @@
         return $header;
     }
 
+    //Pagina Login
+
+    function pageLogin()
+    {
+        return file_get_contents("./pages/login.html");
+    }
+    
+
     //Pagina Moduls
 
     function pageLlistaModuls($email, $moduls)

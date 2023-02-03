@@ -43,8 +43,11 @@ if (isset($_GET["code"])) {
 }
 
 //Ancla para iniciar sesión
-if (!isset($_SESSION['access_token'])) {//Si no estem loguinats preparem el boto de LOGIN
+if (!isset($_SESSION['access_token']))
+{//Si no estem loguinats preparem el boto de LOGIN
     $login_button = '<a href="' . $google_client->createAuthUrl() . '" style=" background: #dd4b39; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;">Login With Google</a>';
+
+    $login_button = pageLogin();
 }
 else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
@@ -146,12 +149,6 @@ else
     
 }
 
-
-// $page = "llistaModuls";
-// $page = "formulariPreguntes";
-// $page = "mostrarSession";
-
-
 ?>
 
 
@@ -185,6 +182,11 @@ else
                 echo '<a class="btn btn-danger" href="logout.php">Logout</h3></a>';
 
                 break;
+            default:
+
+
+
+                break;
             // case "formulariPreguntes":
 
 
@@ -195,7 +197,7 @@ else
     }
     else
     {
-        echo '<div align="center">' . $login_button . '</div>';
+        echo $login_button;
     }
 ?>
 
