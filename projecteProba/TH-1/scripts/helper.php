@@ -1,8 +1,5 @@
 <?php
-
-
-?>
-<?php
+require_once("./config.php");
 
     function llegirComponent($nomFitxer)
     {
@@ -24,7 +21,11 @@
 
     function pageLogin()
     {
-        return file_get_contents("./pages/login.html");
+        $login = file_get_contents("./pages/login.html");
+
+        $login = str_replace("str_google_client", $google_client->createAuthUrl(), $login);
+        
+        return $login;
     }
     
 
