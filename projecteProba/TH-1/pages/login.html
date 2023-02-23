@@ -15,28 +15,56 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!--Estils-->
-<<<<<<< Updated upstream
-   <link rel="stylesheet" href="../style/styleLogin.css">
+    <style>
+        body
+        {
+            margin: 0%;
+            padding: 0%;
+            background: rgb(86, 184, 237);
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+        .contenedorPrincipal
+        {
+            margin-top: 12%;
+            width: 25%;
+            height: 300px !important;
+        }
+        .contenedorBotonLogin
+        {
+            margin-top: 10%;
+            display: flex;
+            justify-content: center;
+        }
+       
+        a:is(:hover, :focus)
+        {
+            transform: scale(1.3);
+            color: black !important;
+            background: linear-gradient(137deg, rgba(95,255,234,1) 15%, rgb(100, 252, 148) 69%) !important;
+           
+        }
+        a
+        {
+            transition-duration: 600ms;
+            transition-timing-function: ease;
+            padding: 8px;
+        }
+
+    </style>
     <title>Login</title>
 </head>
 <body>
     <div class="container shadow-lg p-3 mb-5 bg-body rounded contenedorPrincipal">
+        <br>
         <div class="row text-center">
-            <div class="col-12">Benvingut al centre Institut Rafael Campalans <hr></div>
-        </div>        
-=======
-   <link rel="stylesheet" href="../style/estilLogin.css">
-    <title>Login</title>
-</head>
-<body>
-    
-    <div class="container shadow-lg p-3 mb-5 bg-body rounded contenedorPrincipal" style="margin-top: 250px; width: 800px; height: 300px;">
-            <div class="row text-center">
-                <div class="col-12"><h3>Benvingut al centre Institut Rafael Campalans</h3> <hr></div>
-            </div>        
->>>>>>> Stashed changes
-
-        <a href="str_google_client" style=" background: #dd4b39; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;">Login With Google</a>
+            <div class="col-12"><h5>Benvingut al centre Institut Rafael Campalans</h5> <hr></div>
+        </div>     
+        <div class="row">
+            <div class="contenedorBotonLogin">
+                <a href="str_google_client" style=" background: #dd4b39; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;">Login With Google</a>    
+            </div>
+        </div>   
+        
     </div>
 
 </body>
