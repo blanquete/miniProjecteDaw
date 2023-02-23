@@ -19,6 +19,7 @@ $google_client->setClientSecret('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');
 
 //Set the OAuth 2.0 Redirect URI
 $google_client->setRedirectUri('http://localhost/miniProjecteDaw/projecteProba/TH-1/index.php');
+//$google_client->setRedirectUri('http://teacherhelp.cat/index.php');
 
 //print_r($google_client);
 
