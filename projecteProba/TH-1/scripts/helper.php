@@ -19,11 +19,11 @@ require_once("./config.php");
 
     //Pagina Login
 
-    function pageLogin()
+    function pageLogin($gc_createAuthUrl)
     {
         $login = file_get_contents("./pages/login.html");
 
-        $login = str_replace("str_google_client", $google_client->createAuthUrl(), $login);
+        $login = str_replace("str_google_client", $gc_createAuthUrl, $login);
         
         return $login;
     }
