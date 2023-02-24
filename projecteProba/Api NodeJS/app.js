@@ -1,3 +1,4 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 
@@ -6,10 +7,12 @@ var app = express();
 var indexController = require('./index');
 var questionController = require('./routes/question')
 var userController = require('./routes/user')
+var roomController = require('./routes/room')
 
 app.use('/', indexController);
 app.use('/questions', questionController);
 app.use('/users/', userController)
+app.use('/rooms/', roomController)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
