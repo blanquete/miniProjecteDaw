@@ -57,11 +57,11 @@ else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
     $email = $_SESSION['user_email_address'];
 
-    $userJSON = getBackendCall("http://localhost:4000/users/email/$email");
+    $user = getBackendCall("http://localhost:4000/users/email/$email");
     
+    //print_r($user);
+
     
-    //$userJSON = json_decode(file_get_contents("http://localhost:4000/users/email/$email"), true);
-    echo $userJSON . "<br>";
 
 
     if(isset($_POST["desti"]))
@@ -70,6 +70,15 @@ else
         if($desti == "llistaModuls")
         {   
             
+
+            if($user["role"]["name"] == "student")
+            {
+                //Agafar sales alumnes by idgroup
+            }
+            else
+            {
+                //agafar sales professor by iduser
+            }
 
             //Amb l'id de l'usuari obtenim aquesta llista
             /*$moduls = array(
@@ -172,7 +181,7 @@ else
         {
             case "llistaModuls":
 
-                pageLlistaModuls($email, $moduls);
+                pageLlistaModuls($email, $moduls, $user["role"]["name"] != "student");
 
                 break;
             case "formulariPreguntes":
