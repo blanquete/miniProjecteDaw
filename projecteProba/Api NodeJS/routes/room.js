@@ -9,7 +9,12 @@ router.get("/iduser/:iduser", (req, res) => {
     Room.findAll({
         where: {
             user_iduser: req.params.iduser
-        }
+        },
+        include: {
+            model: User,
+            attributes: ["iduser", "name"]
+        },
+        attributes: ["idroom", "name"]
     })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
@@ -21,7 +26,10 @@ router.get("/group/:idgroup", (req, res) => {
         where: {
             group_idgroup: req.params.idgroup
         },
-        include: User,
+        include: {
+            model: User,
+            attributes: ["iduser", "name"]
+        },
         attributes: ["idroom", "name"]
     })
     .then(result => res.json(result))
