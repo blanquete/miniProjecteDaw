@@ -4,6 +4,8 @@
 include('config.php');
 include('./scripts/helper.php');
 
+$apiUrl = "http://localhost:4000/";
+
 $login_button = '';
 
 if (isset($_GET["code"])) {
@@ -57,7 +59,7 @@ else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
     $email = $_SESSION['user_email_address'];
 
-    $user = getBackendCall("http://localhost:4000/users/email/$email");
+    $user = getBackendCall($apiUrl . "users/email/$email");
     $iduser = $user["iduser"];
     //print_r($user);
 
@@ -74,7 +76,7 @@ else
             if($user["role"]["name"] == "student")
             {
                 $idgroup = $user["group"]["idgroup"];
-                $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
+                $moduls = getBackendCall($apiUrl . "rooms/group/$idgroup");
 
                 //print_r($moduls);
             }
@@ -134,11 +136,11 @@ else
 
             if($user["role"]["name"] == "student")
             {
-                $preguntes = getBackendCall("http://localhost:4000/questions/?iduser=$iduser&idroom=$idroom");
+                $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
             }
             else
             {
-                $preguntes = getBackendCall("http://localhost:4000/questions/?idroom=$idroom");
+                $preguntes = getBackendCall($apiUrl . "questions/?idroom=$idroom");
             }
 
             //carregar preguntes
@@ -166,12 +168,12 @@ else
         if($user["role"]["name"] == "student")
         {
             $idgroup = $user["group"]["idgroup"];
-            $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
+            $moduls = getBackendCall($apiUrl . "rooms/group/$idgroup");
         }
         else
         {
             $iduser = $user["iduser"];
-            $moduls = getBackendCall("http://localhost:4000/rooms/user/$iduser");
+            $moduls = getBackendCall($apiUrl . "rooms/user/$iduser");
         }
 
 
@@ -199,7 +201,7 @@ else
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes($email, $preguntes, $modul, $user["role"]["name"] == "student");
+                pageFormulariPreguntes($email, $preguntes, $modul, $idroom, $user["role"]["name"] == "student");
 
                 break;
             case "perfilUsuari":

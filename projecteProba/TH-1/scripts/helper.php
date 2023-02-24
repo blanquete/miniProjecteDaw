@@ -109,7 +109,7 @@ require_once("./config.php");
 
     //Pagina Formulari Preguntes
 
-    function pageFormulariPreguntes($e, $ps, $m, $isStudent)
+    function pageFormulariPreguntes($e, $ps, $m, $idRoom, $isStudent)
     {
         //Textos a canviar 
             //str_email
@@ -135,6 +135,7 @@ require_once("./config.php");
 
 
         
+        $page = str_replace("str_idSala", $idRoom, $page);
 
         $header = getHeader($e);
         $llistatPreguntes = crearLlistatPreguntes($ps, $isStudent);
