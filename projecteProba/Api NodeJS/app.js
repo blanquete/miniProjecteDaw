@@ -8,11 +8,13 @@ var indexController = require('./index');
 var questionController = require('./routes/question')
 var userController = require('./routes/user')
 var roomController = require('./routes/room')
+var groupController = require('./routes/group')
 
 app.use('/', indexController);
 app.use('/questions', questionController);
 app.use('/users/', userController)
 app.use('/rooms/', roomController)
+app.use('/groups/', groupController)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
