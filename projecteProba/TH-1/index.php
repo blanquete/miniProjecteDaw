@@ -17,6 +17,8 @@ if (isset($_GET["code"])) {
         $_SESSION['access_token'] = $token['access_token'];
 
         $google_service = new Google_Service_Oauth2($google_client);
+        print_r($google_service);
+
 
         $data = $google_service->userinfo->get();
 
@@ -55,6 +57,12 @@ else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
     $email = $_SESSION['user_email_address'];
 
+    $userJSON = getBackendCall("http://localhost:4000/users/email/$email");
+    
+    
+    //$userJSON = json_decode(file_get_contents("http://localhost:4000/users/email/$email"), true);
+    echo $userJSON . "<br>";
+
 
     if(isset($_POST["desti"]))
     {
@@ -64,7 +72,7 @@ else
             
 
             //Amb l'id de l'usuari obtenim aquesta llista
-            $moduls = array(
+            /*$moduls = array(
                 array("modul" => "M01", "profe" => "Angel", "idSala" => "1"),
                 array("modul" => "M02", "profe" => "Ruben", "idSala" => "2"),
                 array("modul" => "M03", "profe" => "Francesc", "idSala" => "3"),
@@ -75,7 +83,7 @@ else
                 array("modul" => "M08", "profe" => "Gloria", "idSala" => "8"),
                 array("modul" => "M09", "profe" => "Alex", "idSala" => "9")
             );
-            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
         }
         else if($desti == "formulariPreguntes")
         {
