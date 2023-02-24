@@ -22,6 +22,6 @@ button:hover{
     width: 18%; 
     margin-left: 2%;
     margin-top: 1.2%;
-    height: 40vh;
+    height: 370px;
     background: linear-gradient(180deg, rgb(237, 237, 237) 0%, rgb(238, 234, 234) 71%, rgb(139, 207, 139) 150%) !important;
 }
