@@ -134,15 +134,15 @@ else
 
             if($user["role"]["name"] == "student")
             {
-                $preguntesAlumne = getBackendCall("http://localhost:4000/questions/?iduser=$iduser&idroom=$idroom");
+                $preguntes = getBackendCall("http://localhost:4000/questions/?iduser=$iduser&idroom=$idroom");
             }
             else
             {
-                $preguntesAlumne = getBackendCall("http://localhost:4000/questions/?idroom=$idroom");
+                $preguntes = getBackendCall("http://localhost:4000/questions/?idroom=$idroom");
             }
 
             //carregar preguntes
-            /*$preguntesAlumne = array(
+            /*$preguntes = array(
                 array("title" => "Titol Pregunta 1", "pregunta" => "Descripcio Pregunta 1"),
                 array("title" => "Titol Pregunta 2", "pregunta" => "Descripcio Pregunta 2"),
                 array("title" => "Titol Pregunta 3", "pregunta" => "Descripcio Pregunta 3"),
@@ -199,7 +199,7 @@ else
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes($email, $preguntesAlumne, $modul, $user["role"]["name"] == "student");
+                pageFormulariPreguntes($email, $preguntes, $modul, $user["role"]["name"] == "student");
 
                 break;
             case "perfilUsuari":
