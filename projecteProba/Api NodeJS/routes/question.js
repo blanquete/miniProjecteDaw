@@ -41,6 +41,7 @@ const genericQuestionBody = {
 /** GET ALL QUESTIONS **/
 router.get('/', (req, res) => {
     Question.findAll({
+        where: req.query.iduser ? { solved: false } : {},
         include: [
             {
                 model: User,
@@ -71,18 +72,6 @@ router.get('/', (req, res) => {
         ],
         attributes: {
             exclude:  ["room_idroom", "user_iduser", "createdAt", "updatedAt"]
-        }
-    })
-    .then(result => res.json(result))
-    .catch(error => res.send(error).status(500))
-})
-
-/** GET A QUESTION BY ID **/
-router.get('/:idquestion', (req, res) => {
-    Question.findOne({
-        ...genericQuestionBody,
-        where: {
-            idquestion: req.params.idquestion
         }
     })
     .then(result => res.json(result))
@@ -127,7 +116,6 @@ router.post('/', (req, res) => {
     Question.create({
         title: req.body.title,
         description: req.body.description,
-        solved: req.body.solved,
         user_iduser: req.body.user_iduser,
         room_idroom: req.body.room_idroom
     })
