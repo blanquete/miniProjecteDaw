@@ -44,7 +44,7 @@ require_once("./config.php");
 
     //Pagina Moduls
 
-    function pageLlistaModuls($email, $moduls, $profe = false)
+    function pageLlistaModuls($email, $moduls, $isStudent)
     {
         //Textos a canviar 
             //moduls []
@@ -101,7 +101,7 @@ require_once("./config.php");
 
     //Pagina Formulari Preguntes
 
-    function pageFormulariPreguntes($e, $ps, $m)
+    function pageFormulariPreguntes($e, $ps, $m, $isStudent)
     {
         //Textos a canviar 
             //str_email
@@ -112,34 +112,64 @@ require_once("./config.php");
                 // str_txt_question
             //str_modul
 
-        $page = llegirComponent("pages/formulariPreguntes.html");
 
+            if($isStudent)
+            {
+                $page = llegirComponent("pages/formulariPreguntes.html");
+
+            }
+            else
+            {
+                $page = llegirComponent("pages/pantallaProfe.html");
+
+            }
+
+
+
+        
 
         $header = getHeader($e);
-        $llistatPreguntes = crearLlistatPreguntes($ps);
+        $llistatPreguntes = crearLlistatPreguntes($ps, $isStudent);
+        $page = str_replace("str_llistat_preguntes", $llistatPreguntes, $page);
 
         $page = str_replace("str_email", $e, $page);
         $page = str_replace("str_header", $header, $page);
-        $page = str_replace("str_llistat_preguntes", $llistatPreguntes, $page);
         $page = str_replace("str_modul", $m, $page);
 
         
         echo $page;
     }
 
-    function crearLlistatPreguntes($preguntes)
+    function crearLlistatPreguntes($preguntes, $isStudent)
     {
         // str_title_question
         // str_txt_question
 
-        $divPregunta = file_get_contents("./pages/components/containerPregunta.html");
         $llistatPreguntes = "";
+
+        if($isStudent)
+        {
+            $divPregunta = file_get_contents("./pages/components/containerPregunta.html");
+
+        }
+        else
+        {
+            $divPregunta = file_get_contents("./pages/components/containerPreguntaProfe.html");
+
+        }
 
 
 
         foreach ($preguntes as $key => $value) {
-            $pregunta = str_replace("str_title_question", $value["title"], $divPregunta);
-            $pregunta = str_replace("str_txt_question", $value["pregunta"], $pregunta);
+
+
+            $pregunta = str_replace("str_title", $value["title"], $divPregunta);
+            $pregunta = str_replace("str_description", $value["description"], $pregunta);
+
+            if(!$isStudent)
+            {
+                $pregunta = str_replace("str_user_name", $value["user"]["name"], $pregunta);
+            }
     
             $llistatPreguntes .=  $pregunta;
         }
