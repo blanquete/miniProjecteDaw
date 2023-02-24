@@ -41,6 +41,7 @@ const genericQuestionBody = {
 /** GET ALL QUESTIONS **/
 router.get('/', (req, res) => {
     Question.findAll({
+        where: req.query.iduser ? { solved: false } : {},
         include: [
             {
                 model: User,
