@@ -60,8 +60,16 @@ require_once("./config.php");
 
         $btns = crearBtnsModul($moduls);
 
+        $crearSala = "";
+
+        if(!$isStudent)
+        {
+            $crearSala = llegirComponent("./pages/components/crearSala.html");
+        }
+
 
         
+        $page = str_replace("str_crear_sala", $crearSala, $page);
         $page = str_replace("str_btns_assignatura", $btns, $page);
         $page = str_replace("str_header", $header, $page);
 
