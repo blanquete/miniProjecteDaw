@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../connection')
 const Group = require('./Group')
+const User = require('./User')
 
 const Room = db.define("room", {
     idroom: {
@@ -21,6 +22,14 @@ Room.belongsTo(Group, {
 
 Group.hasMany(Room, {
     foreignKey: "group_idgroup"
+})
+
+Room.belongsTo(User, {
+    foreignKey: "user_iduser"
+})
+
+User.hasMany(Room, {
+    foreignKey: "user_iduser"
 })
 
 module.exports = Room
