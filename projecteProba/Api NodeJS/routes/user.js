@@ -1,5 +1,4 @@
 const express = require('express');
-const _ = require('lodash');
 const Group = require('../classes/Group');
 const Role = require('../classes/Role');
 const User = require('../classes/User');
@@ -34,28 +33,24 @@ router.get('/', (req, res) => {
 
 /** GET USER BY ID */
 router.get('/iduser/:iduser', (req, res) => {
-    User.findOne(_.merge(
-        {
-            where: {
-                iduser: req.params.iduser
-            }
-        },
-        genericUserBody
-    ))
+    User.findOne({
+        ...genericUserBody,
+        where: {
+            iduser: req.params.iduser
+        }
+    })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
 })
 
 /** GET USER BY ID */
 router.get('/email/:email', (req, res) => {
-    User.findOne(_.merge(
-        {
-            where: {
-                email: req.params.email
-            }
-        },
-        genericUserBody
-    ))
+    User.findOne({
+        ...genericUserBody,
+        where: {
+            email: req.params.email
+        }
+    })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
 })
