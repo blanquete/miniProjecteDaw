@@ -3,14 +3,15 @@ require_once("./config.php");
 
     function getBackendCall($url, $METHOD = "GET")
     {
-        $data = array("a" => $a);
+        //$data = array("a" => $a);
         
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $METHOD);
         //curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
 
-        return curl_exec($ch);
+        return json_decode(curl_exec($ch), true);
+
     }
 
     function llegirComponent($nomFitxer)
@@ -43,7 +44,7 @@ require_once("./config.php");
 
     //Pagina Moduls
 
-    function pageLlistaModuls($email, $moduls)
+    function pageLlistaModuls($email, $moduls, $profe = false)
     {
         //Textos a canviar 
             //moduls []
