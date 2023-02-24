@@ -17,8 +17,7 @@ if (isset($_GET["code"])) {
         $_SESSION['access_token'] = $token['access_token'];
 
         $google_service = new Google_Service_Oauth2($google_client);
-
-        //print_r($google_service);
+        print_r($google_service);
 
 
         $data = $google_service->userinfo->get();
@@ -58,10 +57,10 @@ else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
     $email = $_SESSION['user_email_address'];
 
-    //$userJSON = file_get_contents("http://localhost:4000/users/email/$email");
-    $userJSON = json_decode(file_get_contents("http://localhost:4000/users/email/$email"), true);
-
-
+    $userJSON = getBackendCall("http://localhost:4000/users/email/$email");
+    
+    
+    //$userJSON = json_decode(file_get_contents("http://localhost:4000/users/email/$email"), true);
     echo $userJSON . "<br>";
 
 

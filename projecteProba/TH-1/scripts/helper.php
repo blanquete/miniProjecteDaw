@@ -1,6 +1,18 @@
 <?php
 require_once("./config.php");
 
+    function getBackendCall($url, $METHOD = "GET")
+    {
+        $data = array("a" => $a);
+        
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $METHOD);
+        //curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+
+        return curl_exec($ch);
+    }
+
     function llegirComponent($nomFitxer)
     {
         $component = file_get_contents($nomFitxer);
