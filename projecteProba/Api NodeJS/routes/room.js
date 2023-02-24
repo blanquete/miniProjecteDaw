@@ -5,7 +5,7 @@ const User = require('../classes/User');
 const router = express();
 
 // GET ALL ROOMS BY USER (TEACHER)
-router.get("/iduser/:iduser", (req, res) => {
+router.get("/user/:iduser", (req, res) => {
     Room.findAll({
         where: {
             user_iduser: req.params.iduser
