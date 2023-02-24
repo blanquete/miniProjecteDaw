@@ -76,9 +76,9 @@ require_once("./config.php");
 
 
         foreach ($moduls as $key => $value) {
-            $btn = str_replace("str_idSala", $value["idSala"], $btnSala);
-            $btn = str_replace("str_nom_professor", $value["profe"], $btn);
-            $btn = str_replace("str_nom_modul", $value["modul"], $btn);
+            $btn = str_replace("str_idSala", $value["idroom"], $btnSala);
+            $btn = str_replace("str_nom_professor", $value["user"]["name"], $btn);
+            $btn = str_replace("str_nom_modul", $value["name"], $btn);
     
             if($key % 3 == 0){
                 $aux = "<div class='row'>";
