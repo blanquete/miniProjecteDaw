@@ -4,7 +4,6 @@ const Role = require('../classes/Role');
 const Room = require('../classes/Room');
 const User = require('../classes/User');
 const express = require('express');
-const _ = require('lodash');
 const router = express();
 
 const genericQuestionBody = {
@@ -41,21 +40,51 @@ const genericQuestionBody = {
 
 /** GET ALL QUESTIONS **/
 router.get('/', (req, res) => {
-    Question.findOne(genericQuestionBody)
+    Question.findAll({
+        include: [
+            {
+                model: User,
+                where: req.query.iduser ? {iduser: req.query.iduser} : {},
+                include: {
+                    model: Role,
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt"]
+                    }
+                },
+                attributes: {
+                    exclude: ["role_idrole", "group_idgroup", "createdAt", "updatedAt"]
+                }
+            },
+            {
+                model: Room,
+                where: req.query.idroom ? {idroom: req.query.idroom} : {},
+                include: {
+                    model: Group,
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt"]
+                    }
+                },
+                attributes: {
+                    exclude: ["group_idgroup", "createdAt", "updatedAt"]
+                }
+            }
+        ],
+        attributes: {
+            exclude:  ["room_idroom", "user_iduser", "createdAt", "updatedAt"]
+        }
+    })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
 })
 
 /** GET A QUESTION BY ID **/
 router.get('/:idquestion', (req, res) => {
-    Question.findOne(_.merge(
-        {
-            where: {
-                idquestion: req.params.idquestion
-            }
-        }, 
-        genericQuestionBody
-    ))
+    Question.findOne({
+        ...genericQuestionBody,
+        where: {
+            idquestion: req.params.idquestion
+        }
+    })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
 })
@@ -69,45 +98,15 @@ router.put('/:idquestion/solved', (req, res) => {
             ? false
             : null
 
-    Question.findOne(_.merge(
-        {
-            where: {
-                idquestion: req.params.idquestion
-            }
-        }, 
-        genericQuestionBody
-    ))
+    Question.findOne({
+        ...genericQuestionBody,
+        where: {
+            idquestion: req.params.idquestion
+        }
+    })
     .then(question => {
         return question.update({solved: value || !question.solved})
     })
-    .then(result => res.json(result))
-    .catch(error => res.send(error).status(500))
-})
-
-/** GET ALL QUESTIONS FROM USER **/
-router.get('/user/:iduser', (req, res) => {
-    Question.findOne(_.merge(
-        {
-            where: {
-                user_iduser: req.params.iduser
-            }
-        }, 
-        genericQuestionBody
-    ))
-    .then(result => res.json(result))
-    .catch(error => res.send(error).status(500))
-})
-
-/** GET ALL QUESTIONS FROM ROOM **/
-router.get('/room/:idroom', (req, res) => {
-    Question.findOne(_.merge(
-        {
-            where: {
-                room_idroom: req.params.idroom
-            }
-        }, 
-        genericQuestionBody
-    ))
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
 })

@@ -1,10 +1,9 @@
 const express = require('express');
-const _ = require('lodash');
 const Room = require('../classes/Room');
 const User = require('../classes/User');
 const router = express();
 
-// GET ALL ROOMS BY USER (TEACHER)
+/** GET ALL ROOMS BY USER (TEACHER) **/
 router.get("/user/:iduser", (req, res) => {
     Room.findAll({
         where: {
@@ -20,7 +19,7 @@ router.get("/user/:iduser", (req, res) => {
     .catch(error => res.send(error).status(500))
 })
 
-// GET ALL ROOMS BY GROUP (STUDENT)
+/** GET ALL ROOMS BY GROUP (STUDENT) **/
 router.get("/group/:idgroup", (req, res) => {
     Room.findAll({
         where: {

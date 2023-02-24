@@ -58,7 +58,7 @@ else
     $email = $_SESSION['user_email_address'];
 
     $user = getBackendCall("http://localhost:4000/users/email/$email");
-    
+    $iduser = $user["iduser"];
     //print_r($user);
 
     
@@ -76,7 +76,7 @@ else
                 $idgroup = $user["group"]["idgroup"];
                 $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
 
-                print_r($moduls);
+                //print_r($moduls);
             }
             else
             {
@@ -129,10 +129,20 @@ else
                 }
             }
 
+            $idroom = $_POST["idSala"];
 
+
+            if($user["role"]["name"] == "student")
+            {
+                $preguntesAlumne = getBackendCall("http://localhost:4000/questions/?iduser=$iduser&idroom=$idroom");
+            }
+            else
+            {
+                $preguntesAlumne = getBackendCall("http://localhost:4000/questions/?idroom=$idroom");
+            }
 
             //carregar preguntes
-            $preguntesAlumne = array(
+            /*$preguntesAlumne = array(
                 array("title" => "Titol Pregunta 1", "pregunta" => "Descripcio Pregunta 1"),
                 array("title" => "Titol Pregunta 2", "pregunta" => "Descripcio Pregunta 2"),
                 array("title" => "Titol Pregunta 3", "pregunta" => "Descripcio Pregunta 3"),
@@ -146,7 +156,7 @@ else
                 array("title" => "Titol Pregunta 11", "pregunta" => "Descripcio Pregunta 11"),
                 array("title" => "Titol Pregunta 12", "pregunta" => "Descripcio Pregunta 12")
             );
-            //^^^^^^^^^^^^^^^^^^^^
+            //^^^^^^^^^^^^^^^^^^^^*/
         }
     }
     else
@@ -157,8 +167,6 @@ else
         {
             $idgroup = $user["group"]["idgroup"];
             $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
-
-            //print_r($moduls);
         }
         else
         {
@@ -167,19 +175,7 @@ else
         }
 
 
-        //Amb l'id de l'usuari obtenim aquesta llista
-        /*$moduls = array(
-            array("modul" => "M01", "profe" => "Angel", "idSala" => "1"),
-            array("modul" => "M02", "profe" => "Ruben", "idSala" => "2"),
-            array("modul" => "M03", "profe" => "Francesc", "idSala" => "3"),
-            array("modul" => "M04", "profe" => "Quim", "idSala" => "4"),
-            array("modul" => "M05", "profe" => "Jordi", "idSala" => "5"),
-            array("modul" => "M06", "profe" => "Nicolau", "idSala" => "6"),
-            array("modul" => "M07", "profe" => "Lluis", "idSala" => "7"),
-            array("modul" => "M08", "profe" => "Gloria", "idSala" => "8"),
-            array("modul" => "M09", "profe" => "Alex", "idSala" => "9")
-        );
-        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+        //Amb l'id de l'usuari obtenim la llista de moduls o sales
     }
 
     
@@ -198,12 +194,12 @@ else
         {
             case "llistaModuls":
 
-                pageLlistaModuls($email, $moduls, $user["role"]["name"] != "student");
+                pageLlistaModuls($email, $moduls, $user["role"]["name"] == "student");
 
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes($email, $preguntesAlumne, $modul);
+                pageFormulariPreguntes($email, $preguntesAlumne, $modul, $user["role"]["name"] == "student");
 
                 break;
             case "perfilUsuari":

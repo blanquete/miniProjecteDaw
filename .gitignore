@@ -26,9 +26,7 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
 [Oo]bj/
-[Ll]og/
 [Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
@@ -348,3 +346,14 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+projecteProba/signIn PHP/vendor/psr/log/composer.json
+projecteProba/signIn PHP/vendor/psr/log/LICENSE
+projecteProba/signIn PHP/vendor/psr/log/README.md
+projecteProba/signIn PHP/vendor/psr/log/src/AbstractLogger.php
+projecteProba/signIn PHP/vendor/psr/log/src/InvalidArgumentException.php
+projecteProba/signIn PHP/vendor/psr/log/src/LoggerAwareInterface.php
+projecteProba/signIn PHP/vendor/psr/log/src/LoggerAwareTrait.php
+projecteProba/signIn PHP/vendor/psr/log/src/LoggerInterface.php
+projecteProba/signIn PHP/vendor/psr/log/src/LoggerTrait.php
+projecteProba/signIn PHP/vendor/psr/log/src/LogLevel.php
+projecteProba/signIn PHP/vendor/psr/log/src/NullLogger.php
