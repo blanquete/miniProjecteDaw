@@ -77,18 +77,6 @@ router.get('/', (req, res) => {
     .catch(error => res.send(error).status(500))
 })
 
-/** GET A QUESTION BY ID **/
-router.get('/:idquestion', (req, res) => {
-    Question.findOne({
-        ...genericQuestionBody,
-        where: {
-            idquestion: req.params.idquestion
-        }
-    })
-    .then(result => res.json(result))
-    .catch(error => res.send(error).status(500))
-})
-
 /** SOLVE OR UNSOLVE A QUESTION **/
 router.put('/:idquestion/solved', (req, res) => {
     console.log(req.query.value.toLowerCase() == 'true')
@@ -127,7 +115,6 @@ router.post('/', (req, res) => {
     Question.create({
         title: req.body.title,
         description: req.body.description,
-        solved: req.body.solved,
         user_iduser: req.body.user_iduser,
         room_idroom: req.body.room_idroom
     })
