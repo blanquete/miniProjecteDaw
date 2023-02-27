@@ -35,4 +35,14 @@ router.get("/group/:idgroup", (req, res) => {
     .catch(error => res.send(error).status(500))
 })
 
+router.get("/create/:name/:iduser/:idgroup", (req, res) => {
+    Room.create({
+        name: req.params.name,
+        user_iduser: req.params.iduser,
+        group_idgroup: req.params.group
+    })
+    .then(result => res.sendStatus(200))
+    .catch(error => res.send(error).status(500))
+})
+
 module.exports = router;

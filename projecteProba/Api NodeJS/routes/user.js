@@ -56,12 +56,12 @@ router.get('/email/:email', (req, res) => {
 })
 
 /** CREATE USER **/
-router.post('/', (req, res) => {
+router.get('/create/:name/:email/:idrole/:idgroup', (req, res) => {
     User.create({
-        name: req.body.name,
-        email: req.body.email,
-        role_idrole: req.body.role_idrole,
-        group_idgroup: req.body.group_idgroup
+        name: req.params.name,
+        email: req.params.email,
+        role_idrole: req.params.idrole,
+        group_idgroup: req.params.idgroup
     })
     .then(user => res.json(user))
     .catch(error => res.send(error).status(500))

@@ -79,7 +79,7 @@ router.get('/', (req, res) => {
 })
 
 /** SOLVE OR UNSOLVE A QUESTION **/
-router.put('/:idquestion/solved', (req, res) => {
+router.get('/:idquestion/solved', (req, res) => {
     console.log(req.query.value.toLowerCase() == 'true')
     var value =  req.query.value.toLowerCase() == 'true' 
         ? true 
@@ -101,7 +101,7 @@ router.put('/:idquestion/solved', (req, res) => {
 })
 
 /** DELETE QUESTION BY ID **/
-router.delete('/:idquestion', (req, res) => {
+router.get('/delete/:idquestion', (req, res) => {
     Question.delete({
         where: {
             idquestion: req.params.idquestion
@@ -112,12 +112,12 @@ router.delete('/:idquestion', (req, res) => {
 })
 
 /** CREATE QUESTION **/
-router.post('/', (req, res) => {
+router.get('/create/:title/:description/:iduser/:idroom', (req, res) => {
     Question.create({
-        title: req.body.title,
-        description: req.body.description,
-        user_iduser: req.body.user_iduser,
-        room_idroom: req.body.room_idroom
+        title: req.params.title,
+        description: req.params.description,
+        user_iduser: req.params.iduser,
+        room_idroom: req.params.idroom
     })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
