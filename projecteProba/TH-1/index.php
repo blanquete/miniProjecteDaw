@@ -71,14 +71,14 @@ else
         {
             case "enviarPregunta":
 
-                print_r($_POST);
+                //print_r($_POST);
 
                 $title = $_POST["titlePregunta"];
                 $description = $_POST["txtPregunta"];
                 $iduser;
                 $idroom = $_POST["idSala"];
 
-                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom", "POST");
+                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom", "GET");
 
 
                 break;
@@ -97,7 +97,7 @@ else
                 $idGroup = $_POST["selectGrup"];
                 $iduser;
 
-                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup", "POST");
+                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup", "GET");
 
                 break;
         }
