@@ -4,13 +4,24 @@ require_once("./config.php");
     function getBackendCall($url, $METHOD = "GET")
     {
         //$data = array("a" => $a);
+        $data = "";
         
         $ch = curl_init($url);
+        
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $METHOD);
-        //curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
 
-        return json_decode(curl_exec($ch), true);
+        if($METHOD != "GET")
+        {
+            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+        }
+
+
+
+
+        $json = curl_exec($ch);
+
+        return json_decode($json, true);
 
     }
 
@@ -44,7 +55,7 @@ require_once("./config.php");
 
     //Pagina Moduls
 
-    function pageLlistaModuls($email, $moduls, $isStudent)
+    function pageLlistaModuls($email, $moduls, $groups, $isStudent)
     {
         //Textos a canviar 
             //moduls []
@@ -65,6 +76,10 @@ require_once("./config.php");
         if(!$isStudent)
         {
             $crearSala = llegirComponent("./pages/components/crearSala.html");
+
+            $opcions = crearOpcionsGrups($groups);
+
+            $crearSala = str_replace("str_option_groups", $opcions, $crearSala);
         }
 
 
@@ -75,7 +90,25 @@ require_once("./config.php");
 
         
         echo $page;
-    } 
+    }
+
+    function crearOpcionsGrups($groups)
+    {
+        $option = file_get_contents("./pages/components/opcionsGrup.html");
+
+        $options = "";
+
+        foreach($groups as $grup)
+        {
+            $opt = str_replace("str_idGrup", $grup["idgroup"], $option);
+            $opt = str_replace("str_nomGrup", $grup["name"], $opt);
+
+            $options .= $opt;
+        }
+
+        return $options;
+
+    }
 
     function crearBtnsModul($moduls)
     {
@@ -138,7 +171,7 @@ require_once("./config.php");
         $page = str_replace("str_idSala", $idRoom, $page);
 
         $header = getHeader($e);
-        $llistatPreguntes = crearLlistatPreguntes($ps, $isStudent);
+        $llistatPreguntes = crearLlistatPreguntes($ps, $m, $idRoom, $isStudent);
         $page = str_replace("str_llistat_preguntes", $llistatPreguntes, $page);
 
         $page = str_replace("str_email", $e, $page);
@@ -149,7 +182,7 @@ require_once("./config.php");
         echo $page;
     }
 
-    function crearLlistatPreguntes($preguntes, $isStudent)
+    function crearLlistatPreguntes($preguntes, $m, $idRoom, $isStudent)
     {
         // str_title_question
         // str_txt_question
@@ -174,6 +207,9 @@ require_once("./config.php");
 
             $pregunta = str_replace("str_title", $value["title"], $divPregunta);
             $pregunta = str_replace("str_description", $value["description"], $pregunta);
+            $pregunta = str_replace("str_idSala", $idRoom, $pregunta);
+            $pregunta = str_replace("str_idModul", $m, $pregunta);
+            $pregunta = str_replace("str_idPregunta", $value["idquestion"], $pregunta);
 
             if(!$isStudent)
             {

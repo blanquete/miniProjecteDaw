@@ -9,14 +9,15 @@
         <br>
         <div class="mb-3">
             <label class="form-label" for="selectGrup">Grup</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" name="selectGrup" aria-label="Default select example" required>
                 <option selected hidden></option>
-                <option value="1">DAM</option>
-                <option value="2">DAW</option>
-                <option value="3">ALTRES</option>
+
+                str_option_groups
+
               </select>
         </div>
 
-        <input type="submit" value="Crear sala" class="btn btn-success">
+        <input type="hidden" name="desti" value="llistaModuls">
+        <input type="submit" name="accio" value="crearSala" class="btn btn-success">
     </form>
 </div>
