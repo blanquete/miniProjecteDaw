@@ -39,7 +39,7 @@ router.get("/create/:name/:iduser/:idgroup", (req, res) => {
     Room.create({
         name: req.params.name,
         user_iduser: req.params.iduser,
-        group_idgroup: req.params.group
+        group_idgroup: req.params.idgroup
     })
     .then(result => res.sendStatus(200))
     .catch(error => res.send(error).status(500))
