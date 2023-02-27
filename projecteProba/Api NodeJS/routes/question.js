@@ -80,8 +80,7 @@ router.get('/', (req, res) => {
 
 /** SOLVE OR UNSOLVE A QUESTION **/
 router.get('/:idquestion/solved', (req, res) => {
-    console.log(req.query.value.toLowerCase() == 'true')
-    var value =  req.query.value.toLowerCase() == 'true' 
+    var value =  req.query.value == 'true' 
         ? true 
         : req.query.value.toLowerCase() == 'false'
             ? false
