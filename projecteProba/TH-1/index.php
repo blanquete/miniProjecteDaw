@@ -4,6 +4,8 @@
 include('config.php');
 include('./scripts/helper.php');
 
+$apiUrl = "http://localhost:4000/";
+
 $login_button = '';
 
 if (isset($_GET["code"])) {
@@ -57,11 +59,49 @@ else
 {//Si ens loguinem correctament mirem on volem anar i carreguem la informacio necessaria
     $email = $_SESSION['user_email_address'];
 
-    $user = getBackendCall("http://localhost:4000/users/email/$email");
+    $user = getBackendCall($apiUrl . "users/email/$email");
     $iduser = $user["iduser"];
     //print_r($user);
 
-    
+    if(isset($_POST["accio"]))
+    {
+        $accio = $_POST["accio"];
+
+        switch($accio)
+        {
+            case "enviarPregunta":
+
+                print_r($_POST);
+
+                $title = $_POST["titlePregunta"];
+                $description = $_POST["txtPregunta"];
+                $iduser;
+                $idroom = $_POST["idSala"];
+
+                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom", "POST");
+
+
+                break;
+
+            case "resoldre":
+
+                $idPregunta = $_REQUEST["idPregunta"];
+
+                getBackendCall($apiUrl . "questions/$idPregunta/solved", "PUT");
+
+                break;
+
+            case "crearSala":
+
+                $nomSala = $_POST["nomSala"];
+                $idGroup = $_POST["selectGrup"];
+                $iduser;
+
+                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup", "POST");
+
+                break;
+        }
+    }
 
 
     if(isset($_POST["desti"]))
@@ -74,26 +114,28 @@ else
             if($user["role"]["name"] == "student")
             {
                 $idgroup = $user["group"]["idgroup"];
-                $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
+                $moduls = getBackendCall($apiUrl . "rooms/group/$idgroup");
 
                 //print_r($moduls);
             }
-            else
+            else if($user["role"]["name"] == "teacher")
             {
+                $iduser = $user["iduser"];
+                $moduls = getBackendCall($apiUrl . "rooms/user/$iduser");
                 //agafar sales professor by iduser
             }
 
             //Amb l'id de l'usuari obtenim aquesta llista
             /*$moduls = array(
-                array("modul" => "M01", "profe" => "Angel", "idSala" => "1"),
-                array("modul" => "M02", "profe" => "Ruben", "idSala" => "2"),
-                array("modul" => "M03", "profe" => "Francesc", "idSala" => "3"),
-                array("modul" => "M04", "profe" => "Quim", "idSala" => "4"),
-                array("modul" => "M05", "profe" => "Jordi", "idSala" => "5"),
-                array("modul" => "M06", "profe" => "Nicolau", "idSala" => "6"),
-                array("modul" => "M07", "profe" => "Lluis", "idSala" => "7"),
-                array("modul" => "M08", "profe" => "Gloria", "idSala" => "8"),
-                array("modul" => "M09", "profe" => "Alex", "idSala" => "9")
+                array("name" => "M01", "user" => array("name" => "Angel"), "idroom" => "1"),
+                array("name" => "M02", "user" => array("name" => "Ruben"), "idroom" => "2"),
+                array("name" => "M03", "user" => array("name" => "Francesc"), "idroom" => "3"),
+                array("name" => "M04", "user" => array("name" => "Quim"), "idroom" => "4"),
+                array("name" => "M05", "user" => array("name" => "Jordi"), "idroom" => "5"),
+                array("name" => "M06", "user" => array("name" => "Nicolau"), "idroom" => "6"),
+                array("name" => "M07", "user" => array("name" => "Lluis"), "idroom" => "7"),
+                array("name" => "M08", "user" => array("name" => "Gloria"), "idroom" => "8"),
+                array("name" => "M09", "user" => array("name" => "Alex"), "idroom" => "9")
             );
             //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
         }
@@ -104,57 +146,29 @@ else
                 $modul = $_POST["idModul"];
             }
 
-
-            if(isset($_POST["accio"]))
-            {
-                $accio = $_POST["accio"];
-
-                switch($accio)
-                {
-                    case "enviarPregunta":
-
-                        print_r($_POST);
-
-
-                        break;
-
-                    case "resoldre":
-
-                        break;
-
-                    case "eliminar":
-
-                        break;
-
-                }
-            }
-
             $idroom = $_POST["idSala"];
 
 
             if($user["role"]["name"] == "student")
             {
-                $preguntes = getBackendCall("http://localhost:4000/questions/?iduser=$iduser&idroom=$idroom");
+                $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
             }
-            else
+            else if($user["role"]["name"] == "teacher")
             {
-                $preguntes = getBackendCall("http://localhost:4000/questions/?idroom=$idroom");
+                $preguntes = getBackendCall($apiUrl . "questions/?idroom=$idroom");
             }
 
             //carregar preguntes
             /*$preguntes = array(
-                array("title" => "Titol Pregunta 1", "pregunta" => "Descripcio Pregunta 1"),
-                array("title" => "Titol Pregunta 2", "pregunta" => "Descripcio Pregunta 2"),
-                array("title" => "Titol Pregunta 3", "pregunta" => "Descripcio Pregunta 3"),
-                array("title" => "Titol Pregunta 4", "pregunta" => "Descripcio Pregunta 4"),
-                array("title" => "Titol Pregunta 5", "pregunta" => "Descripcio Pregunta 5"),
-                array("title" => "Titol Pregunta 6", "pregunta" => "Descripcio Pregunta 6"),
-                array("title" => "Titol Pregunta 7", "pregunta" => "Descripcio Pregunta 7"),
-                array("title" => "Titol Pregunta 8", "pregunta" => "Descripcio Pregunta 8"),
-                array("title" => "Titol Pregunta 9", "pregunta" => "Descripcio Pregunta 9"),
-                array("title" => "Titol Pregunta 10", "pregunta" => "Descripcio Pregunta 10"),
-                array("title" => "Titol Pregunta 11", "pregunta" => "Descripcio Pregunta 11"),
-                array("title" => "Titol Pregunta 12", "pregunta" => "Descripcio Pregunta 12")
+                array("title" => "Titol Pregunta 1","user" => array("name" => "Angel"), "idquestion" => 1, "description" => "Descripcio Pregunta 1"),
+                array("title" => "Titol Pregunta 2","user" => array("name" => "Ruben"), "idquestion" => 2, "description" => "Descripcio Pregunta 2"),
+                array("title" => "Titol Pregunta 3","user" => array("name" => "Francesc"), "idquestion" => 3, "description" => "Descripcio Pregunta 3"),
+                array("title" => "Titol Pregunta 4","user" => array("name" => "Quim"), "idquestion" => 4, "description" => "Descripcio Pregunta 4"),
+                array("title" => "Titol Pregunta 5","user" => array("name" => "Jordi"), "idquestion" => 5, "description" => "Descripcio Pregunta 5"),
+                array("title" => "Titol Pregunta 6","user" => array("name" => "Nicolau"), "idquestion" => 6, "description" => "Descripcio Pregunta 6"),
+                array("title" => "Titol Pregunta 7","user" => array("name" => "Lluis"), "idquestion" => 7, "description" => "Descripcio Pregunta 7"),
+                array("title" => "Titol Pregunta 8","user" => array("name" => "Gloria"), "idquestion" => 8, "description" => "Descripcio Pregunta 8"),
+                array("title" => "Titol Pregunta 9","user" => array("name" => "Alex"), "idquestion" => 9, "description" => "Descripcio Pregunta 9")
             );
             //^^^^^^^^^^^^^^^^^^^^*/
         }
@@ -163,19 +177,49 @@ else
     {
         $desti = "llistaModuls";
 
+        $groups = [];
+
         if($user["role"]["name"] == "student")
         {
             $idgroup = $user["group"]["idgroup"];
-            $moduls = getBackendCall("http://localhost:4000/rooms/group/$idgroup");
+            $moduls = getBackendCall($apiUrl . "rooms/group/$idgroup");
         }
-        else
+        else if($user["role"]["name"] == "teacher")
         {
             $iduser = $user["iduser"];
-            $moduls = getBackendCall("http://localhost:4000/rooms/user/$iduser");
+            $moduls = getBackendCall($apiUrl . "rooms/user/$iduser");
+
+            $groups = getBackendCall($apiUrl . "groups");
         }
 
 
         //Amb l'id de l'usuari obtenim la llista de moduls o sales
+            /*$moduls = array(
+                array("name" => "M01", "user" => array("name" => "Angel"), "idroom" => "1"),
+                array("name" => "M02", "user" => array("name" => "Ruben"), "idroom" => "2"),
+                array("name" => "M03", "user" => array("name" => "Francesc"), "idroom" => "3"),
+                array("name" => "M04", "user" => array("name" => "Quim"), "idroom" => "4"),
+                array("name" => "M05", "user" => array("name" => "Jordi"), "idroom" => "5"),
+                array("name" => "M06", "user" => array("name" => "Nicolau"), "idroom" => "6"),
+                array("name" => "M07", "user" => array("name" => "Lluis"), "idroom" => "7"),
+                array("name" => "M08", "user" => array("name" => "Gloria"), "idroom" => "8"),
+                array("name" => "M09", "user" => array("name" => "Alex"), "idroom" => "9")
+            );
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+            /*$groups = array(
+                array("name" => "M01", "idgroup" => 1),
+                array("name" => "M02", "idgroup" => 2),
+                array("name" => "M03", "idgroup" => 3),
+                array("name" => "M04", "idgroup" => 4),
+                array("name" => "M05", "idgroup" => 5),
+                array("name" => "M06", "idgroup" => 6),
+                array("name" => "M07", "idgroup" => 7),
+                array("name" => "M08", "idgroup" => 8),
+                array("name" => "M09", "idgroup" =>  9)
+            );*/
+
+
     }
 
     
@@ -194,12 +238,12 @@ else
         {
             case "llistaModuls":
 
-                pageLlistaModuls($email, $moduls, $user["role"]["name"] == "student");
+                pageLlistaModuls($email, $moduls, $groups, $user["role"]["name"] == "student");
 
                 break;
             case "formulariPreguntes":
 
-                pageFormulariPreguntes($email, $preguntes, $modul, $user["role"]["name"] == "student");
+                pageFormulariPreguntes($email, $preguntes, $modul, $idroom, $user["role"]["name"] == "student");
 
                 break;
             case "perfilUsuari":

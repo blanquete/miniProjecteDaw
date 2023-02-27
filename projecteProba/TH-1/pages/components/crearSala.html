@@ -1,0 +1,23 @@
+<div class="divAñadirClase col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h5 class="text-center">Panell de professorat</h5>
+    <hr>
+    <form action="" method="post">
+        <div class="mb-3">
+            <label class="form-label" for="nomSala">Nom de la nova sala:</label>
+            <input class="form-control" type="text" name="nomSala" id="nomSala" autofocus required>
+        </div>
+        <br>
+        <div class="mb-3">
+            <label class="form-label" for="selectGrup">Grup</label>
+            <select class="form-select" name="selectGrup" aria-label="Default select example" required>
+                <option selected hidden></option>
+
+                str_option_groups
+
+              </select>
+        </div>
+
+        <input type="hidden" name="desti" value="llistaModuls">
+        <input type="submit" name="accio" value="crearSala" class="btn btn-success">
+    </form>
+</div>
