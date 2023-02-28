@@ -118,7 +118,7 @@ else
 
                 foreach($rooms as $r)
                 {
-                    if($r["name"] == $nomSala) //&& $r["description"] == $idGroup)
+                    if($r["name"] == $nomSala && $r["group"]["idgroup"] == $idGroup)
                     {
                         $enviar = false;
                     }
