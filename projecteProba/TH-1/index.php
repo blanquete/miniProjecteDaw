@@ -73,13 +73,13 @@ else
 
                 //print_r($_POST);
 
-                $title = $_POST["titlePregunta"];
-                $description = $_POST["txtPregunta"];
+                $title = str_replace(" ", "%20", $_POST["titlePregunta"]);
+                $description = str_replace(" ", "%20", $_POST["txtPregunta"]);
                 $iduser;
                 $idroom = $_POST["idSala"];
 
                 getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
-
+                echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
                 break;
 
             case "resoldre":
