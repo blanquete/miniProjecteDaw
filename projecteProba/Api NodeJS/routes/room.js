@@ -1,5 +1,6 @@
 const express = require('express');
 const Room = require('../classes/Room');
+const Group = require('../classes/Group');
 const User = require('../classes/User');
 const router = express();
 
