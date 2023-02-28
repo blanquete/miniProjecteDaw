@@ -4,7 +4,8 @@
 include('config.php');
 include('./scripts/helper.php');
 
-$apiUrl = "http://localhost:4000/";
+//$apiUrl = "http://localhost:4000/";
+$apiUrl = "http://teacherhelp.cat:4000/";
 
 $login_button = '';
 
