@@ -4,7 +4,8 @@
 include('config.php');
 include('./scripts/helper.php');
 
-$apiUrl = "http://localhost:4000/";
+//$apiUrl = "http://localhost:4000/";
+$apiUrl = "http://teacherhelp.cat:4000/";
 
 $login_button = '';
 
@@ -73,31 +74,30 @@ else
 
                 //print_r($_POST);
 
-                $title = $_POST["titlePregunta"];
-                $description = $_POST["txtPregunta"];
+                $title = str_replace(" ", "%20", $_POST["titlePregunta"]);
+                $description = str_replace(" ", "%20", $_POST["txtPregunta"]);
                 $iduser;
                 $idroom = $_POST["idSala"];
 
-                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom", "GET");
-
-
+                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
+                echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
                 break;
 
             case "resoldre":
 
                 $idPregunta = $_REQUEST["idPregunta"];
 
-                getBackendCall($apiUrl . "questions/$idPregunta/solved", "PUT");
+                getBackendCall($apiUrl . "questions/$idPregunta/solved");
 
                 break;
 
             case "crearSala":
 
-                $nomSala = $_POST["nomSala"];
+                $nomSala = str_replace(" ", "%20", $_POST["nomSala"]);
                 $idGroup = $_POST["selectGrup"];
                 $iduser;
 
-                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup", "GET");
+                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup");
 
                 break;
         }
@@ -109,7 +109,7 @@ else
         $desti = $_POST["desti"];
         if($desti == "llistaModuls")
         {   
-
+            $groups = [];
 
             if($user["role"]["name"] == "student")
             {
@@ -122,6 +122,8 @@ else
             {
                 $iduser = $user["iduser"];
                 $moduls = getBackendCall($apiUrl . "rooms/user/$iduser");
+
+                $groups = getBackendCall($apiUrl . "groups");
                 //agafar sales professor by iduser
             }
 
