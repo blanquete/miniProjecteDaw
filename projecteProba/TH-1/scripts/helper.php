@@ -3,21 +3,10 @@ require_once("./config.php");
 
     function getBackendCall($url, $METHOD = "GET")
     {
-        //$data = array("a" => $a);
-        $data = "";
-        
         $ch = curl_init($url);
         
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $METHOD);
-
-        if($METHOD != "GET")
-        {
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
-        }
-
-
-
 
         $json = curl_exec($ch);
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const Room = require('../classes/Room');
+const Group = require('../classes/Group');
 const User = require('../classes/User');
 const router = express();
 
@@ -9,10 +10,16 @@ router.get("/user/:iduser", (req, res) => {
         where: {
             user_iduser: req.params.iduser
         },
-        include: {
-            model: User,
-            attributes: ["iduser", "name"]
-        },
+        include: [
+            {
+                model: User,
+                attributes: ["iduser", "name"]
+            },
+            {
+                model: Group,
+                attributes: ["idgroup", "name"]
+            }
+        ],
         attributes: ["idroom", "name"]
     })
     .then(result => res.json(result))

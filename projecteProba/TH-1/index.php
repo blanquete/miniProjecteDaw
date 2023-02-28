@@ -64,7 +64,7 @@ else
     $iduser = $user["iduser"];
     //print_r($user);
 
-    if(isset($_POST["accio"]))
+    if(isset($_POST["accio"]) && $_POST["accio"] != "")
     {
         $accio = $_POST["accio"];
 
@@ -79,15 +79,30 @@ else
                 $iduser;
                 $idroom = $_POST["idSala"];
 
-                getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
-                echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
+                $enviar = true;
+                $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
+
+                foreach($preguntes as $preg)
+                {
+                    if($preg["title"] == $title && $preg["description"] == $description)
+                    {
+                        $enviar = false;
+                    }
+                }
+
+                if($enviar)
+                {
+                    getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
+                }
+                
+                //echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
                 break;
 
             case "resoldre":
 
                 $idPregunta = $_REQUEST["idPregunta"];
 
-                getBackendCall($apiUrl . "questions/$idPregunta/solved");
+                getBackendCall($apiUrl . "questions/$idPregunta/solved/?value=true");
 
                 break;
 
@@ -97,10 +112,29 @@ else
                 $idGroup = $_POST["selectGrup"];
                 $iduser;
 
-                getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup");
+
+                $enviar = true;
+                $rooms = getBackendCall($apiUrl . "rooms/user/$iduser");
+
+                foreach($rooms as $r)
+                {
+                    if($r["name"] == $nomSala && $r["group"]["idgroup"] == $idGroup)
+                    {
+                        $enviar = false;
+                    }
+                }
+
+                if($enviar)
+                {
+                    getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup");
+                }
+
+                
+
 
                 break;
         }
+
     }
 
 
