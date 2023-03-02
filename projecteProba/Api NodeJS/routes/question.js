@@ -72,7 +72,10 @@ router.get('/', (req, res) => {
         ],
         attributes: {
             exclude:  ["room_idroom", "user_iduser", "createdAt", "updatedAt"]
-        }
+        },
+        order: [
+            ["createdAt", "DESC"]
+        ]
     })
     .then(result => res.json(result))
     .catch(error => res.send(error).status(500))
