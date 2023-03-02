@@ -23,7 +23,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     
-    <link rel="stylesheet" href="estilPaginaProfessor.css">
+    <link rel="stylesheet" href="style/estilPaginaProfessor.css">
 
     <title>Llistat Professor</title>
 </head>
@@ -32,9 +32,13 @@
     str_header
 
     <div class="container" data-aos="zoom-in-left">
-        <br><h3 class="text-center">Llistat de preguntes - str_modul</h3><hr>
+        <br>
+        <form action="index.php" method="post">
+            <input type="hidden" name="desti" value="llistaModuls">
+            <button type="submit" class="btn btn-danger">Tornar</button>
+        </form>
+        <h3 class="text-center">Llistat de preguntes - str_modul</h3><hr>
         <div data-bs-spy="scroll" class="container shadow p-3 mb-5 bg-body rounded scroll" ">
-            
             str_llistat_preguntes
 
         </div>

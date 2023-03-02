@@ -83,8 +83,9 @@ else
                 $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
 
                 foreach($preguntes as $preg)
-                {
-                    if($preg["title"] == $title && $preg["description"] == $description)
+                    {
+                            echo "Estem a False;";
+                    if($preg["title"] == $_POST["titlePregunta"] && $preg["description"] == $_POST["txtPregunta"])
                     {
                         $enviar = false;
                     }
@@ -118,7 +119,7 @@ else
 
                 foreach($rooms as $r)
                 {
-                    if($r["name"] == $nomSala) //&& $r["description"] == $idGroup)
+                    if($r["name"] == $_POST["nomSala"] && $r["group"]["idgroup"] == $_POST["selectGrup"])
                     {
                         $enviar = false;
                     }
