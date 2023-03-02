@@ -74,7 +74,7 @@ router.get('/', (req, res) => {
             exclude:  ["room_idroom", "user_iduser", "createdAt", "updatedAt"]
         },
         order: [
-            ["createdAt", "DESC"]
+            ["createdAt", "ASC"]
         ]
     })
     .then(result => res.json(result))
