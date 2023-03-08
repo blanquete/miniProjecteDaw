@@ -40,9 +40,7 @@ require_once("./config.php");
 
         if($alert)
         {
-            $str_alert = "<script>
-            
-            alert('El correu amb el que vols entrar no esta registrat, comprova\'l o parla amb els administradors')</script>";
+            $str_alert = file_get_contents("./pages/components/errorLogin.html");
             $login = str_replace("str_errorLogin", $str_alert, $login);
 
         }
