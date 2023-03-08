@@ -152,6 +152,7 @@ else
     {
         $_POST["desti"] = "noEsticRegistrat";
         $errorLogin = true;
+        
         $google_client->revokeToken();
 
         session_destroy();
