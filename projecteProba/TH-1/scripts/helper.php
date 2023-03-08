@@ -32,11 +32,24 @@ require_once("./config.php");
 
     //Pagina Login
 
-    function pageLogin($gc_createAuthUrl)
+    function pageLogin($gc_createAuthUrl, $alert = false)
     {
         $login = file_get_contents("./pages/login.html");
 
         $login = str_replace("str_google_client", $gc_createAuthUrl, $login);
+
+        if($alert)
+        {
+            $str_alert = "<script>
+            
+            alert('El correu amb el que vols entrar no esta registrat, comprova\'l o parla amb els administradors')</script>";
+            $login = str_replace("str_errorLogin", $str_alert, $login);
+
+        }
+        else
+        {
+            $login = str_replace("str_errorLogin", "", $login);
+        }
         
         return $login;
     }

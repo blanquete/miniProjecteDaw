@@ -46,13 +46,12 @@ if (isset($_GET["code"])) {
         }
     }
 }
+$errorLogin = false;
 
 //Ancla para iniciar sesión
 if (!isset($_SESSION['access_token']))
 {//Si no estem loguinats preparem el boto de LOGIN
-    //Boto simple predefinit
-    //$login_button = '<a href="' . $google_client->createAuthUrl() . '" style=" background: #dd4b39; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;">Login With Google</a>';
-
+    
     //Pagina Login Custom
     $login_button = pageLogin($google_client->createAuthUrl());
 }
@@ -61,81 +60,101 @@ else
     $email = $_SESSION['user_email_address'];
 
     $user = getBackendCall($apiUrl . "users/email/$email");
-    $iduser = $user["iduser"];
-    //print_r($user);
 
-    if(isset($_POST["accio"]) && $_POST["accio"] != "")
+
+
+
+    if($user != null)
     {
-        $accio = $_POST["accio"];
 
-        switch($accio)
+        $iduser = $user["iduser"];
+            //print_r($user);
+        
+        
+
+        if(isset($_POST["accio"]) && $_POST["accio"] != "")
         {
-            case "enviarPregunta":
+            $accio = $_POST["accio"];
 
-                //print_r($_POST);
+            switch($accio)
+            {
+                case "enviarPregunta":
 
-                $title = str_replace(" ", "%20", $_POST["titlePregunta"]);
-                $description = str_replace(" ", "%20", $_POST["txtPregunta"]);
-                $iduser;
-                $idroom = $_POST["idSala"];
+                    //print_r($_POST);
 
-                $enviar = true;
-                $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
+                    $title = str_replace(" ", "%20", $_POST["titlePregunta"]);
+                    $description = str_replace(" ", "%20", $_POST["txtPregunta"]);
+                    $iduser;
+                    $idroom = $_POST["idSala"];
 
-                foreach($preguntes as $preg)
-                    {
-                            echo "Estem a False;";
-                    if($preg["title"] == $_POST["titlePregunta"] && $preg["description"] == $_POST["txtPregunta"])
-                    {
-                        $enviar = false;
+                    $enviar = true;
+                    $preguntes = getBackendCall($apiUrl . "questions/?iduser=$iduser&idroom=$idroom");
+
+                    foreach($preguntes as $preg)
+                        {
+                                echo "Estem a False;";
+                        if($preg["title"] == $_POST["titlePregunta"] && $preg["description"] == $_POST["txtPregunta"])
+                        {
+                            $enviar = false;
+                        }
                     }
-                }
 
-                if($enviar)
-                {
-                    getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
-                }
-                
-                //echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
-                break;
-
-            case "resoldre":
-
-                $idPregunta = $_REQUEST["idPregunta"];
-
-                getBackendCall($apiUrl . "questions/$idPregunta/solved/?value=true");
-
-                break;
-
-            case "crearSala":
-
-                $nomSala = str_replace(" ", "%20", $_POST["nomSala"]);
-                $idGroup = $_POST["selectGrup"];
-                $iduser;
-
-
-                $enviar = true;
-                $rooms = getBackendCall($apiUrl . "rooms/user/$iduser");
-
-                foreach($rooms as $r)
-                {
-                    if($r["name"] == $_POST["nomSala"] && $r["group"]["idgroup"] == $_POST["selectGrup"])
+                    if($enviar)
                     {
-                        $enviar = false;
+                        getBackendCall($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
                     }
-                }
+                    
+                    //echo($apiUrl . "questions/create/$title/$description/$iduser/$idroom");
+                    break;
 
-                if($enviar)
-                {
-                    getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup");
-                }
+                case "resoldre":
 
-                
+                    $idPregunta = $_REQUEST["idPregunta"];
+
+                    getBackendCall($apiUrl . "questions/$idPregunta/solved/?value=true");
+
+                    break;
+
+                case "crearSala":
+
+                    $nomSala = str_replace(" ", "%20", $_POST["nomSala"]);
+                    $idGroup = $_POST["selectGrup"];
+                    $iduser;
 
 
-                break;
+                    $enviar = true;
+                    $rooms = getBackendCall($apiUrl . "rooms/user/$iduser");
+
+                    foreach($rooms as $r)
+                    {
+                        if($r["name"] == $_POST["nomSala"] && $r["group"]["idgroup"] == $_POST["selectGrup"])
+                        {
+                            $enviar = false;
+                        }
+                    }
+
+                    if($enviar)
+                    {
+                        getBackendCall($apiUrl . "rooms/create/$nomSala/$iduser/$idGroup");
+                    }
+
+                    
+
+
+                    break;
+            }
+
         }
+        
 
+    }
+    else
+    {
+        $_POST["desti"] = "noEsticRegistrat";
+        $errorLogin = true;
+        $google_client->revokeToken();
+
+        session_destroy();
     }
 
 
@@ -269,8 +288,7 @@ else
 
 <?php
     if ($login_button == '')
-    {
-        
+    {        
         switch($desti)
         {
             case "llistaModuls":
@@ -295,21 +313,27 @@ else
                 echo '<a class="btn btn-danger" href="logout.php">Logout</h3></a>';
 
                 break;
+
+            case "noEsticRegistrat":
+
+                
+                $login_button = pageLogin($google_client->createAuthUrl(), $errorLogin);
+
+                echo $login_button;
+
+                break;
             default:
 
 
 
                 break;
-            // case "formulariPreguntes":
-
-
-            //     break;
         }
 
 
     }
     else
     {
+        $login_button = pageLogin($google_client->createAuthUrl(), $errorLogin);
         echo $login_button;
     }
 ?>
