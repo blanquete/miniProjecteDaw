@@ -133,6 +133,12 @@ require_once("./config.php");
                 $btn .= $aux2;
     
             }
+
+            if($key % 3 != 2 && $key == count($moduls)-1)
+            {
+                $btn .= "</div>";
+            }
+
             $btnModul .=  $btn;
         }
         return $btnModul;
